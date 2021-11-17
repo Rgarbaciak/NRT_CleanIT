@@ -3,7 +3,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="{{ path('home')}}" class="logo"><b>Clean<span>IT</span></b></a>
+      <a href="{{ path('home')}}" class="logo"><b>Green<span>Card</span></b></a>
       <!--logo end-->
       
    
@@ -22,7 +22,7 @@
           <p class="centered"><a href="profile.html"><img src="{{ asset('img/ui-sam.jpg') }}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Quelqu'un</h5>
           <li class="mt">
-            <a class="active" href="index.html">
+            <a class="active" href="{{ path('home')}}">
               <i class="fa fa-dashboard"></i>
               <span>Accueil</span>
               </a>
@@ -34,9 +34,9 @@
               </a>
             <ul class="sub">
               <li><a href="{{ path('enseigneLister')}}">Liste des enseignes</a></li>
-              <li><a href="buttons.html">Ajouter une enseigne</a></li>
-              <li><a href="panels.html"></a></li>
-              <li><a href="font_awesome.html"></a></li>
+              <li><a href="{{ path('enseigneAjouter')}}">Ajouter une enseigne</a></li>
+              <li><a href="panels.html">Quelque chose enseigne</a></li>
+              <li><a href="font_awesome.html">Quelque chose enseigne</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -45,8 +45,8 @@
               <span>Magasin</span>
               </a>
             <ul class="sub">
-              <li><a href="grids.html">Liste des magasins</a></li>
-              <li><a href="calendar.html">Ajouter un magasin</a></li>
+              <li><a href="{{ path('magasinLister')}}">Liste des magasins</a></li>
+              <li><a href="{{ path('magasinAjouter')}}">Ajouter un magasin</a></li>
               <li><a href="gallery.html">Gallery</a></li>
               <li><a href="todo_list.html">Todo List</a></li>
               <li><a href="dropzone.html">Dropzone File Upload</a></li>
