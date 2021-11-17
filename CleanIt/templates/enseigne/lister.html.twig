@@ -7,23 +7,40 @@
     </head>
     <body>
      {% include('./component/menu.html.twig') %}
+        <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">
+           
     {% if pEnseigne != null %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-            
-        LISTE DES ENSEIGNES</br>
-        <table>
+           
+        <h4>LISTE DES ENSEIGNES</h4>
+        </br>
+        <table class="table table-bordered table-striped table-condensed">
+        <tr>
+                      <th>Nom de l'enseigne</th>
+                      <th>Ville du siège social</th>
+                      <th class="numeric">Pays du siège social</th>
+                     
+                    </tr>
         {% for e in pEnseigne %}
         <tr>
-            <td><a href="{{ path('enseigneConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a></td>
-    {% else %}
-        <tr>
+            <th><a href="{{ path('enseigneConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a> </th>
+            <th>{{ e.ville }} </th>
+            <th>{{ e.pays }} </th>
+        {% endfor %}
+        {% else %}
+         <tr>
         <td>Aucune enseigne n'a été trouvée.</td>
         </tr>
-        {% endfor %}
     {% endif %}
 </table>
-	
+	</div>
+</div>
+</section>
+</section>
 	 {% include('./component/script.html.twig') %}
     </body>
 </html>

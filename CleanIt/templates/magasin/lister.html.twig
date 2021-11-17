@@ -3,25 +3,44 @@
     <head>
         <meta charset="UTF-8">
         <title>Liste des magasins</title>
+     {% include('./component/css.html.twig') %}
     </head>
     <body>
+     {% include('./component/menu.html.twig') %}
+        <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">
     {% if pMagasin != null %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
             
-        LISTE DES ENSEIGNES</br>
-        <table>
+        <h4>LISTE DES ENSEIGNES</h4></br>
+        <table class="table table-bordered table-striped table-condensed">
+        <tr>
+                      <th>Nom du magasin</th>
+                      <th>Nom de l'enseigne</th>
+                      <th >Pays du magasins</th>
+                      <th >Ville du magasins</th>
+                      <th >Rue du magasins</th>
+                      <th >Code postal du magasins</th>
+                     
+                    </tr>
         {% for e in pMagasin %}
         <tr>
-            <td><a href="{{ path('magasinConsulter', { 'id': e.id }) }}">{{ e.id }}</a></td>
-    {% else %}
-        <tr>
-        <td>Aucune magasin n'a été trouvée.</td>
-        </tr>
+            <td><a href="{{ path('magasinConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a></td>
+    
         {% endfor %}
+        {% else %}
+        <tr>
+        <td>Aucun magasin n'a été trouvée.</td>
+        </tr>
     {% endif %}
 </table>
-	
-	 
+	</div>
+</div>
+</section>
+</section>
+	 {% include('./component/script.html.twig') %}
     </body>
 </html>
