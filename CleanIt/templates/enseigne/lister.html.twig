@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Liste des enseignes</title>
+        {% include('./component/css.html.twig') %}
     </head>
     <body>
+     {% include('./component/menu.html.twig') %}
     {% if pEnseigne != null %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
@@ -22,6 +24,6 @@
     {% endif %}
 </table>
 	
-	 
+	 {% include('./component/script.html.twig') %}
     </body>
 </html>
