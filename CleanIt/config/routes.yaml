@@ -1,6 +1,10 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\AccueilController::index
+
+home:
+    path: /home
+    controller: App\Controller\AccueilController::home
 
 #enseigne
 enseigneAjouter:
