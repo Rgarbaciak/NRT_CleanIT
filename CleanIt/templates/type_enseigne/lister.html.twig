@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Liste des typeEnseignes</title>
+    </head>
+    <body>
+    {% if pTypeEnseigne != null %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+            
+        LISTE DES ENSEIGNES</br>
+        <table>
+        {% for e in pTypeEnseigne %}
+        <tr>
+            <td><a href="{{ path('typeEnseigneConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a></td>
+    {% else %}
+        <tr>
+        <td>Aucune typeEnseigne n'a été trouvée.</td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+	
+	 
+    </body>
+</html>
