@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\EnseigneRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class Enseigne
      * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $rue;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Magasin::class, mappedBy="enseigne", orphanRemoval=true)
+     */
+    private $magasins;
+
+    public function __construct()
+    {
+        $this->magasins = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +132,36 @@ class Enseigne
     public function setRue(?string $rue): self
     {
         $this->rue = $rue;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Magasin[]
+     */
+    public function getMagasins(): Collection
+    {
+        return $this->magasins;
+    }
+
+    public function addMagasin(Magasin $magasin): self
+    {
+        if (!$this->magasins->contains($magasin)) {
+            $this->magasins[] = $magasin;
+            $magasin->setEnseigne($this);
+        }
+
+        return $this;
+    }
+
+    public function removeMagasin(Magasin $magasin): self
+    {
+        if ($this->magasins->removeElement($magasin)) {
+            // set the owning side to null (unless already changed)
+            if ($magasin->getEnseigne() === $this) {
+                $magasin->setEnseigne(null);
+            }
+        }
 
         return $this;
     }

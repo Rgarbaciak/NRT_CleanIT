@@ -14,3 +14,16 @@ enseigneConsulter:
 enseigneLister:
   path: /enseigne/lister
   controller: App\Controller\EnseigneController::listerEnseigne
+
+#magasin
+magasinAjouter:
+  path: /magasin/ajouter
+  controller: App\Controller\MagasinController::ajouterMagasin
+
+magasinConsulter:
+  path: /magasin/consulter/{id}
+  controller: App\Controller\MagasinController::consulterMagasin
+
+magasinLister:
+  path: /magasin/lister
+  controller: App\Controller\MagasinController::listerMagasin
