@@ -19,7 +19,7 @@ class MagasinController extends AbstractController
         ]);
     }
     public function ajouterMagasin(Request $request){
-        $magasin = new magasin();
+        $magasin = new Magasin();
         $form = $this->createForm(MagasinType::class, $magasin);
         $form->handleRequest($request);{}
     

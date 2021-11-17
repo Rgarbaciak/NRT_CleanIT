@@ -20,7 +20,7 @@ class EnseigneController extends AbstractController
     }
 
     public function ajouterEnseigne(Request $request){
-        $enseigne = new enseigne();
+        $enseigne = new Enseigne();
         $form = $this->createForm(EnseigneType::class, $enseigne);
         $form->handleRequest($request);{}
     

@@ -27,3 +27,16 @@ magasinConsulter:
 magasinLister:
   path: /magasin/lister
   controller: App\Controller\MagasinController::listerMagasin
+
+#typeEnseigne
+typeEnseigneAjouter:
+  path: /type_enseigne/ajouter
+  controller: App\Controller\TypeEnseigneController::ajouterTypeEnseigne
+
+typeEnseigneConsulter:
+  path: /type_enseigne/consulter/{id}
+  controller: App\Controller\TypeEnseigneController::consulterTypeEnseigne
+
+typeEnseigneLister:
+  path: /type_enseigne/lister
+  controller: App\Controller\TypeEnseigneController::listerTypeEnseigne

@@ -54,6 +54,11 @@ class Enseigne
      */
     private $magasins;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=TypeEnseigne::class, inversedBy="enseignes")
+     */
+    private $typeEnseigne;
+
     public function __construct()
     {
         $this->magasins = new ArrayCollection();
@@ -162,6 +167,18 @@ class Enseigne
                 $magasin->setEnseigne(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getTypeEnseigne(): ?TypeEnseigne
+    {
+        return $this->typeEnseigne;
+    }
+
+    public function setTypeEnseigne(?TypeEnseigne $typeEnseigne): self
+    {
+        $this->typeEnseigne = $typeEnseigne;
 
         return $this;
     }
