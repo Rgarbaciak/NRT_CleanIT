@@ -1,3 +1,16 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+#enseigne
+enseigneAjouter:
+  path: /enseigne/ajouter
+  controller: App\Controller\EnseigneController::ajouterEnseigne
+
+enseigneConsulter:
+  path: /enseigne/consulter/{id}
+  controller: App\Controller\EnseigneController::consulterEnseigne
+
+enseigneLister:
+  path: /enseigne/lister
+  controller: App\Controller\EnseigneController::listerEnseigne
