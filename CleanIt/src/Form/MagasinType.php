@@ -15,12 +15,13 @@ class MagasinType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+        ->add('libelle')
             ->add('rue')
             ->add('ville')
             ->add('copos')
             ->add('pays')
             ->add('horaires')
-            ->add('libelle')
+            
             ->add('enseigne',EntityType::class, array('class' => 'App\Entity\Enseigne','choice_label' => 'libelle' )) 
             ->add('enregistrer', SubmitType::class, array('label' => 'ajouter un magasin'))
         ;
