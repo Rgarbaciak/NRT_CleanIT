@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\MagasinRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,6 +54,16 @@ class Magasin
      * @ORM\Column(type="string", length=120)
      */
     private $libelle;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Interlocuteur::class, mappedBy="magasin", orphanRemoval=true)
+     */
+    private $interlocuteurs;
+
+    public function __construct()
+    {
+        $this->interlocuteurs = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -138,6 +150,36 @@ class Magasin
     public function setLibelle(string $libelle): self
     {
         $this->libelle = $libelle;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Interlocuteur[]
+     */
+    public function getInterlocuteurs(): Collection
+    {
+        return $this->interlocuteurs;
+    }
+
+    public function addInterlocuteur(Interlocuteur $interlocuteur): self
+    {
+        if (!$this->interlocuteurs->contains($interlocuteur)) {
+            $this->interlocuteurs[] = $interlocuteur;
+            $interlocuteur->setMagasin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeInterlocuteur(Interlocuteur $interlocuteur): self
+    {
+        if ($this->interlocuteurs->removeElement($interlocuteur)) {
+            // set the owning side to null (unless already changed)
+            if ($interlocuteur->getMagasin() === $this) {
+                $interlocuteur->setMagasin(null);
+            }
+        }
 
         return $this;
     }
