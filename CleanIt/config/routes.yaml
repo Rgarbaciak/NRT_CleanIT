@@ -74,3 +74,7 @@ interlocuteurConsulter:
 interlocuteurLister:
   path: /interlocuteur/lister
   controller: App\Controller\InterlocuteurController::listerinterlocuteur
+
+interlocuteurModifier:
+  path: /interlocuteur/modifier/{id}
+  controller: App\Controller\InterlocuteurController::modifierInterlocuteur
