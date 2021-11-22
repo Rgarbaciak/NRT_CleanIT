@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        {% include('./component/css.html.twig') %}
+
     </head>
-    <body>       
+    <body>  
+    {% include('./component/menu.html.twig') %}  
+       <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">   
 	<h5>Page consultation d'une magasin</h5>
     <p>{{magasin.id}}<p>
     <p>{{magasin.pays}}</p>
@@ -11,5 +17,10 @@
     <p>{{magasin.ville}}</p>
     <p>{{magasin.rue}}</p>
     <p>{{magasin.horaires}}</p>
+    </div>
+</div>
+</section>
+</section>
+    {% include('./component/script.html.twig') %}
     </body>
 </html>
