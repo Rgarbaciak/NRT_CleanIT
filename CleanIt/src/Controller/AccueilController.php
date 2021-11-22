@@ -23,4 +23,11 @@ class AccueilController extends AbstractController
             'controller_name' => 'AccueilController',
         ]);
     }
+
+    public function profil(): Response
+    {
+        return $this->render('personnel/profil.html.twig', [
+            'controller_name' => 'AccueilController',
+        ]);
+    }
 }
