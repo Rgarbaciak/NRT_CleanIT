@@ -48,6 +48,11 @@ class Magasin
      */
     private $enseigne;
 
+    /**
+     * @ORM\Column(type="string", length=120)
+     */
+    private $libelle;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -121,6 +126,18 @@ class Magasin
     public function setEnseigne(?Enseigne $enseigne): self
     {
         $this->enseigne = $enseigne;
+
+        return $this;
+    }
+
+    public function getLibelle(): ?string
+    {
+        return $this->libelle;
+    }
+
+    public function setLibelle(string $libelle): self
+    {
+        $this->libelle = $libelle;
 
         return $this;
     }
