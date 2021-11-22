@@ -6,6 +6,7 @@ home:
     path: /home
     controller: App\Controller\AccueilController::home
 
+
 #enseigne
 enseigneAjouter:
   path: /enseigne/ajouter
@@ -42,5 +43,9 @@ typeEnseigneConsulter:
   controller: App\Controller\TypeEnseigneController::consulterTypeEnseigne
 
 typeEnseigneLister:
-  path: /type_enseigne/lister
-  controller: App\Controller\TypeEnseigneController::listerTypeEnseigne
+    path: /type_enseigne/lister
+    controller: App\Controller\TypeEnseigneController::listerTypeEnseigne
+
+login:
+    path: /security/login
+    controller: App\Controller\SecurityController::login
