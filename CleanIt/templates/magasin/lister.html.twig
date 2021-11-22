@@ -15,7 +15,7 @@
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
             
-        <h4>LISTE DES ENSEIGNES</h4></br>
+        <h4>Liste des magasins</h4></br>
         <table class="table table-bordered table-striped table-condensed">
         <tr>
                       <th>Nom du magasin</th>
@@ -29,6 +29,11 @@
         {% for e in pMagasin %}
         <tr>
             <td><a href="{{ path('magasinConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a></td>
+             <td>{{ e.enseigne.libelle }}</td>
+             <td>{{ e.pays }}</td>
+             <td>{{ e.ville }}</td>
+              <td>{{ e.rue }}</td>
+             <td>{{ e.copos }}</td>
     
         {% endfor %}
         {% else %}
