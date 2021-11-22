@@ -57,3 +57,16 @@ responsableConsulter:
 responsableLister:
   path: /responsable/lister
   controller: App\Controller\ResponsableController::listerResponsable
+
+  #interlocuteur
+interlocuteurAjouter:
+  path: /interlocuteur/ajouter
+  controller: App\Controller\InterlocuteurController::ajouterInterlocuteur
+
+interlocuteurConsulter:
+  path: /interlocuteur/consulter/{id}
+  controller: App\Controller\InterlocuteurController::consulterInterlocuteur
+
+interlocuteurLister:
+  path: /interlocuteur/lister
+  controller: App\Controller\InterlocuteurController::listerinterlocuteur
