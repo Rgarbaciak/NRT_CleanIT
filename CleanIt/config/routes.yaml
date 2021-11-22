@@ -19,6 +19,10 @@ enseigneLister:
   path: /enseigne/lister
   controller: App\Controller\EnseigneController::listerEnseigne
 
+enseigneModifier:
+  path: /enseigne/modifier/{id}
+  controller: App\Controller\EnseigneController::modifierEnseigne
+
 #magasin
 magasinAjouter:
   path: /magasin/ajouter
