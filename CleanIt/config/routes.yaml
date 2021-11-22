@@ -1,10 +1,10 @@
 index:
-    path: /
-    controller: App\Controller\AccueilController::index
+  path: /
+  controller: App\Controller\AccueilController::index
 
 home:
-    path: /home
-    controller: App\Controller\AccueilController::home
+  path: /home
+  controller: App\Controller\AccueilController::home
 
 #enseigne
 enseigneAjouter:
@@ -48,3 +48,16 @@ typeEnseigneConsulter:
 typeEnseigneLister:
   path: /type_enseigne/lister
   controller: App\Controller\TypeEnseigneController::listerTypeEnseigne
+
+#responsable
+responsableAjouter:
+  path: /responsable/ajouter
+  controller: App\Controller\ResponsableController::ajouterResponsable
+
+responsableConsulter:
+  path: /responsable/consulter/{id}
+  controller: App\Controller\ResponsableController::consulterResponsable
+
+responsableLister:
+  path: /responsable/lister
+  controller: App\Controller\ResponsableController::listerResponsable

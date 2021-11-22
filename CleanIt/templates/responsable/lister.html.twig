@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Liste des responsables</title>
+     {% include('./component/css.html.twig') %}
+    </head>
+    <body>
+     {% include('./component/menu.html.twig') %}
+        <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">
+    {% if pResponsable != null %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+            
+        <h4>LISTE DES RESPONSABLES</h4></br>
+        <table class="table table-bordered table-striped table-condensed">
+        <tr>
+                      <th>Nom du responsable</th>
+                      <th>Prénom du responsable</th>
+                      <th >Téléphone du responsables</th>
+                      <th >Mail du responsables</th>                     
+                    </tr>
+        {% for e in pResponsable %}
+        <tr>
+            <td><a href="{{ path('responsableConsulter', { 'id': e.id }) }}">{{ e.nom }}</a></td>
+            <td>{{ e.prenom }}</td>
+            <td>{{ e.tel }}</td>
+            <td>{{ e.mail }}</td>
+    
+        {% endfor %}
+        {% else %}
+        <tr>
+        <td>Aucun responsable n'a été trouvée.</td>
+        </tr>
+    {% endif %}
+</table>
+	</div>
+</div>
+</section>
+</section>
+	 {% include('./component/script.html.twig') %}
+    </body>
+</html>
