@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Enseigne;
 use App\Form\EnseigneType;
+use App\Form\EnseigneModifierType;
 use Symfony\Component\HttpFoundation\Request;
 
 class EnseigneController extends AbstractController
@@ -60,5 +61,34 @@ class EnseigneController extends AbstractController
         return $this->render('enseigne/lister.html.twig', [
             'pEnseigne' => $enseigne,]);	
     }
+
+    public function modifierEnseigne($id, Request $request){
+ 
+        //récupération de l'étudiant dont l'id est passé en paramètre
+        $enseigne = $this->getDoctrine()
+            ->getRepository(Enseigne::class)
+            ->find($id);
+     
+        if (!$enseigne) {
+            throw $this->createNotFoundException('Aucune enseigne trouvé avec le numéro '.$id);
+        }
+        else
+        {
+                $form = $this->createForm(EnseigneModifierType::class, $enseigne);
+                $form->handleRequest($request);
+     
+                if ($form->isSubmitted() && $form->isValid()) {
+     
+                     $enseigne = $form->getData();
+                     $entityManager = $this->getDoctrine()->getManager();
+                     $entityManager->persist($enseigne);
+                     $entityManager->flush();
+                     return $this->render('enseigne/consulter.html.twig', ['enseigne' => $enseigne,]);
+               }
+               else{
+                    return $this->render('enseigne/modifier.html.twig', array('form' => $form->createView(),));
+               }
+            }
+     }
 
 }
