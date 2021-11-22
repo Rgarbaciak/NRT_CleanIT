@@ -59,9 +59,15 @@ class Enseigne
      */
     private $typeEnseigne;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Responsable::class, mappedBy="enseigne", orphanRemoval=true)
+     */
+    private $responsables;
+
     public function __construct()
     {
         $this->magasins = new ArrayCollection();
+        $this->responsables = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -179,6 +185,36 @@ class Enseigne
     public function setTypeEnseigne(?TypeEnseigne $typeEnseigne): self
     {
         $this->typeEnseigne = $typeEnseigne;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Responsable[]
+     */
+    public function getResponsables(): Collection
+    {
+        return $this->responsables;
+    }
+
+    public function addResponsable(Responsable $responsable): self
+    {
+        if (!$this->responsables->contains($responsable)) {
+            $this->responsables[] = $responsable;
+            $responsable->setEnseigne($this);
+        }
+
+        return $this;
+    }
+
+    public function removeResponsable(Responsable $responsable): self
+    {
+        if ($this->responsables->removeElement($responsable)) {
+            // set the owning side to null (unless already changed)
+            if ($responsable->getEnseigne() === $this) {
+                $responsable->setEnseigne(null);
+            }
+        }
 
         return $this;
     }
