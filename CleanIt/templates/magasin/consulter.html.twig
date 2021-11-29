@@ -19,7 +19,10 @@
     <p>{{magasin.rue}}</p>
     <p>{{magasin.horaires}}</p>
 
-    <th><a href="{{ path('magasinSupprimer', { 'id': magasin.id }) }}">Supprimer le magasin</a> </th>
+    <th><a href="{{ path('magasinSupprimer', { 'id': magasin.id }) }}">Supprimer le magasin</a> </th><br>
+
+    <th><a href="{{ path('magasinModifier', { 'id': magasin.id }) }}">Modifier le magasin</a> </th> <br>
+
     </div>
 </div>
 </section>

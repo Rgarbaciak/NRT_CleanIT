@@ -44,6 +44,10 @@ magasinSupprimer:
   path: /magasin/supprimer/{id}
   controller: App\Controller\MagasinController::supprimerMagasin
 
+magasinModifier:
+  path: /magasin/modifier/{id}
+  controller: App\Controller\MagasinController::modifierMagasin
+
 #typeEnseigne
 typeEnseigneAjouter:
   path: /type_enseigne/ajouter

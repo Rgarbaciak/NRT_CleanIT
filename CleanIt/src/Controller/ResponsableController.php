@@ -33,7 +33,9 @@ class ResponsableController extends AbstractController
                 $entityManager->persist($responsable);
                 $entityManager->flush();
     
-            return $this->redirect('ajouterResponsable',200);;
+            return $this->render('responsable/consulter.html.twig', ['responsable' => $responsable,]);
+
+
         }
         else
             {
