@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        {% include('./component/css.html.twig') %}
+
     </head>
-    <body>       
-	<h5>Page consultation d'une typeEnseigne</h5>
-    <p>{{typeEnseigne.id}}<p>
-    <p>{{typeEnseigne.libelle}}</p>
+    <body>  
+    {% include('./component/menu.html.twig') %}  
+       <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">   
+	<h4>Page consultation d'un type d'enseigne</h4>
+    <p>Id du type d'enseigne :{{typeEnseigne.id}}<p>
+    <p>Libelle du type d'enseigne{{typeEnseigne.libelle}}</p>
+    </div>
+</section>
+</section>
+    {% include('./component/script.html.twig') %}
     </body>
 </html>

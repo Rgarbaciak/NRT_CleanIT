@@ -56,7 +56,7 @@ class TypeEnseigneController extends AbstractController
     public function listerTypeEnseigne(){
         $repository = $this->getDoctrine()->getRepository(TypeEnseigne::class);
         $typeEnseigne = $repository->findAll();
-        return $this->render('typeEnseigne/lister.html.twig', [
+        return $this->render('type_enseigne/lister.html.twig', [
             'pTypeEnseigne' => $typeEnseigne,]);	
     }
 }

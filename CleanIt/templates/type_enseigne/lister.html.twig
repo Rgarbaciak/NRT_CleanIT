@@ -1,27 +1,45 @@
+
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Liste des typeEnseignes</title>
+        {% include('./component/css.html.twig') %}
     </head>
     <body>
+     {% include('./component/menu.html.twig') %}
+        <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">
+           
     {% if pTypeEnseigne != null %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-            
-        LISTE DES ENSEIGNES</br>
-        <table>
+           
+        <h4>Liste des types d'enseignes</h4>
+        </br>
+        <table class="table table-bordered table-striped table-condensed">
+        <tr>
+                      <th>libelle du type d'enseigne</th>
+                     
+                    </tr>
         {% for e in pTypeEnseigne %}
         <tr>
             <td><a href="{{ path('typeEnseigneConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a></td>
-    {% else %}
-        <tr>
+  {% endfor %}
+        {% else %}
+       
+         <tr>
         <td>Aucune typeEnseigne n'a été trouvée.</td>
         </tr>
-        {% endfor %}
     {% endif %}
 </table>
-	
-	 
+	</div>
+</div>
+</section>
+</section>
+	 {% include('./component/script.html.twig') %}
     </body>
 </html>
