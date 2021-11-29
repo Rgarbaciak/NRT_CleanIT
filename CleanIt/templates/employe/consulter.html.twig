@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include('./component/css.html.twig') %}
+    </head>
+    <body>
+     {% include('./component/menu.html.twig') %}  
+        <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">     
+	<h4>Page consultation d'un employe</h4>
+    <p>Id du employe:  {{employe.id}}<p>
+    <p>Nom du employe:  {{employe.nom}}</p>
+    <p>Prenom du employe:  {{employe.prenom}}</p>
+    <p>Téléphone: {{employe.tel}}</p>
+    <p>Mail:  {{employe.mail}}</p>
+    <p>Copos:  {{employe.copos}}</p>
+    <p>Rue:  {{employe.rue}}</p>
+    <p>Ville:  {{employe.ville}}</p>
+    <br>
+    <br>
+    <br>
+    <a href="{{ path('employeModifier', { 'id': employe.id }) }}">Modifier l'employe</a> 
+    <br>
+    <a href="{{ path('employeSupprimer', { 'id': employe.id }) }}">Supprimer l'employe</a>
+    </div>
+</div>
+</section>
+</section>
+    {% include('./component/script.html.twig') %}
+    </body>
+</html>

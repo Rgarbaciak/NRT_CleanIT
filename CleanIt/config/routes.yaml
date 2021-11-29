@@ -133,3 +133,27 @@ clientModifier:
   path: /client/modifier/{id}
   controller: App\Controller\ClientController::modifierClient
 
+interlocuteurSupprimer:
+  path: /interlocuteur/supprimer/{id}
+  controller: App\Controller\InterlocuteurController::supprimerInterlocuteur
+
+  #employe
+employeAjouter:
+  path: /employe/ajouter
+  controller: App\Controller\EmployeController::ajouterEmploye
+
+employeConsulter:
+  path: /employe/consulter/{id}
+  controller: App\Controller\EmployeController::consulterEmploye
+
+employeLister:
+  path: /employe/lister
+  controller: App\Controller\EmployeController::listerEmploye
+
+employeModifier:
+  path: /employe/modifier/{id}
+  controller: App\Controller\EmployeController::modifierEmploye
+
+employeSupprimer:
+  path: /employe/supprimer/{id}
+  controller: App\Controller\EmployeController::supprimerEmploye
