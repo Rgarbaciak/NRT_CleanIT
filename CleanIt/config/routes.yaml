@@ -46,6 +46,12 @@ typeEnseigneLister:
     path: /type_enseigne/lister
     controller: App\Controller\TypeEnseigneController::listerTypeEnseigne
 
-login:
-    path: /security/login
+
+#connexion
+app_login:
+    path: /login
     controller: App\Controller\SecurityController::login
+
+app_logout:
+    path: /logout
+    controller: App\Controller\SecurityController::logout
