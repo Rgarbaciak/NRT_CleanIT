@@ -23,6 +23,10 @@ enseigneModifier:
   path: /enseigne/modifier/{id}
   controller: App\Controller\EnseigneController::modifierEnseigne
 
+enseigneSupprimer:
+  path: /enseigne/supprimer/{id}
+  controller: App\Controller\EnseigneController::supprimerEnseigne
+
 #magasin
 magasinAjouter:
   path: /magasin/ajouter

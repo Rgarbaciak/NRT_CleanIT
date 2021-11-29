@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include('./component/css.html.twig') %}
+    </head>
+    <body>
+     {% include('./component/menu.html.twig') %}  
+        <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">     
+	<h4>Validation de suppresion </h4>
+    <p>L'enseigne a bien était supprimer<p>
+
+    <br>
+    <th><a href="{{ path('enseigneLister') }}">Ok</a> </th> <br>
+   
+    </div>
+</div>
+</section>
+</section>
+    {% include('./component/script.html.twig') %}
+    </body>
+</html>
