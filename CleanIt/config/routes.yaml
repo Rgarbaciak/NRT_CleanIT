@@ -40,6 +40,11 @@ magasinLister:
   path: /magasin/lister
   controller: App\Controller\MagasinController::listerMagasin
 
+magasinSupprimer:
+  path: /magasin/supprimer/{id}
+  controller: App\Controller\MagasinController::supprimerMagasin
+  
+
 #typeEnseigne
 typeEnseigneAjouter:
   path: /type_enseigne/ajouter

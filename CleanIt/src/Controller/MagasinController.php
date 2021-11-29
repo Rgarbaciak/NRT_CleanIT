@@ -59,4 +59,22 @@ class MagasinController extends AbstractController
         return $this->render('magasin/lister.html.twig', [
             'pMagasin' => $magasin,]);	
     }
+    public function supprimerMagasin($id, Request $request){
+        $magasin= $this ->getDoctrine()
+           -> getRepository(Magasin::class)
+           -> find($id);
+           if (!$magasin) {
+               throw $this->createNotFoundException('Aucun magasin trouvé avec le numéro '.$id);
+           }
+           else
+           {
+               $entityManager = $this->getDoctrine()->getManager();
+               $entityManager->remove($magasin);
+               $entityManager->flush();
+           }
+
+           
+       return $this->render('magasin/supprimer.html.twig');
+    }
+
 }
