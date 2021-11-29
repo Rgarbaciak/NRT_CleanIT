@@ -23,6 +23,10 @@ enseigneModifier:
   path: /enseigne/modifier/{id}
   controller: App\Controller\EnseigneController::modifierEnseigne
 
+enseigneSupprimer:
+  path: /enseigne/supprimer/{id}
+  controller: App\Controller\EnseigneController::supprimerEnseigne
+
 #magasin
 magasinAjouter:
   path: /magasin/ajouter
@@ -35,6 +39,10 @@ magasinConsulter:
 magasinLister:
   path: /magasin/lister
   controller: App\Controller\MagasinController::listerMagasin
+
+magasinSupprimer:
+  path: /magasin/supprimer/{id}
+  controller: App\Controller\MagasinController::supprimerMagasin
 
 #typeEnseigne
 typeEnseigneAjouter:
@@ -62,7 +70,15 @@ responsableLister:
   path: /responsable/lister
   controller: App\Controller\ResponsableController::listerResponsable
 
-#interlocuteur
+reponsableSupprimer:
+  path: /responsable/supprimer/{id}
+  controller: App\Controller\ResponsableController::supprimerResponsable
+
+reponsableModifier:
+  path: /responsable/modifier/{id}
+  controller: App\Controller\ResponsableController::modifierResponsable
+
+  #interlocuteur
 interlocuteurAjouter:
   path: /interlocuteur/ajouter
   controller: App\Controller\InterlocuteurController::ajouterInterlocuteur
@@ -91,3 +107,6 @@ clientConsulter:
 clientLister:
   path: /client/lister
   controller: App\Controller\ClientController::listerClient
+interlocuteurSupprimer:
+  path: /interlocuteur/supprimer/{id}
+  controller: App\Controller\InterlocuteurController::supprimerInterlocuteur

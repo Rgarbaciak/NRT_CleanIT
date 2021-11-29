@@ -91,4 +91,24 @@ class EnseigneController extends AbstractController
             }
      }
 
+
+
+     public function supprimerEnseigne($id, Request $request){
+         $enseigne= $this ->getDoctrine()
+            -> getRepository(Enseigne::class)
+            -> find($id);
+            if (!$enseigne) {
+                throw $this->createNotFoundException('Aucune enseigne trouvé avec le numéro '.$id);
+            }
+            else
+            {
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->remove($enseigne);
+                $entityManager->flush();
+            }
+
+            
+        return $this->render('enseigne/supprimer.html.twig');
+     }
+
 }
