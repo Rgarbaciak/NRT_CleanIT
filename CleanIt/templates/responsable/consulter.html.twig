@@ -16,6 +16,9 @@
     <p>{{responsable.prenom}}</p>
     <p>{{responsable.tel}}</p>
     <p>{{responsable.mail}}</p>
+
+
+    <th><a href="{{ path('reponsableSupprimer', { 'id': responsable.id }) }}">Supprimer le responsable</a> </th>
     </div>
 </div>
 </section>

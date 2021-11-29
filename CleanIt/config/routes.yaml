@@ -66,6 +66,10 @@ responsableLister:
   path: /responsable/lister
   controller: App\Controller\ResponsableController::listerResponsable
 
+reponsableSupprimer:
+  path: /responsable/supprimer/{id}
+  controller: App\Controller\ResponsableController::supprimerResponsable
+
   #interlocuteur
 interlocuteurAjouter:
   path: /interlocuteur/ajouter

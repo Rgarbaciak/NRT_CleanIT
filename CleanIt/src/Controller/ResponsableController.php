@@ -60,4 +60,22 @@ class ResponsableController extends AbstractController
             'pResponsable' => $responsable,]);	
     }
 
+    public function supprimerResponsable($id, Request $request){
+        $responsable= $this ->getDoctrine()
+           -> getRepository(Responsable::class)
+           -> find($id);
+           if (!$responsable) {
+               throw $this->createNotFoundException('Aucun responsable trouvé avec le numéro '.$id);
+           }
+           else
+           {
+               $entityManager = $this->getDoctrine()->getManager();
+               $entityManager->remove($responsable);
+               $entityManager->flush();
+           }
+
+           
+       return $this->render('responsable/supprimer.html.twig');
+    }
+
 }
