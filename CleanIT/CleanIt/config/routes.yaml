@@ -1,0 +1,156 @@
+index:
+  path: /
+  controller: App\Controller\AccueilController::index
+
+home:
+  path: /home
+  controller: App\Controller\AccueilController::home
+
+#enseigne
+enseigneAjouter:
+  path: /enseigne/ajouter
+  controller: App\Controller\EnseigneController::ajouterEnseigne
+
+enseigneConsulter:
+  path: /enseigne/consulter/{id}
+  controller: App\Controller\EnseigneController::consulterEnseigne
+
+enseigneLister:
+  path: /enseigne/lister
+  controller: App\Controller\EnseigneController::listerEnseigne
+
+enseigneModifier:
+  path: /enseigne/modifier/{id}
+  controller: App\Controller\EnseigneController::modifierEnseigne
+
+enseigneSupprimer:
+  path: /enseigne/supprimer/{id}
+  controller: App\Controller\EnseigneController::supprimerEnseigne
+
+#magasin
+magasinAjouter:
+  path: /magasin/ajouter
+  controller: App\Controller\MagasinController::ajouterMagasin
+
+magasinConsulter:
+  path: /magasin/consulter/{id}
+  controller: App\Controller\MagasinController::consulterMagasin
+
+magasinLister:
+  path: /magasin/lister
+  controller: App\Controller\MagasinController::listerMagasin
+
+magasinSupprimer:
+  path: /magasin/supprimer/{id}
+  controller: App\Controller\MagasinController::supprimerMagasin
+
+magasinModifier:
+  path: /magasin/modifier/{id}
+  controller: App\Controller\MagasinController::modifierMagasin
+
+#typeEnseigne
+typeEnseigneAjouter:
+  path: /type_enseigne/ajouter
+  controller: App\Controller\TypeEnseigneController::ajouterTypeEnseigne
+
+typeEnseigneConsulter:
+  path: /type_enseigne/consulter/{id}
+  controller: App\Controller\TypeEnseigneController::consulterTypeEnseigne
+
+typeEnseigneLister:
+  path: /type_enseigne/lister
+  controller: App\Controller\TypeEnseigneController::listerTypeEnseigne
+
+typeEnseigneModifier:
+  path: /type_enseigne/modifier/{id}
+  controller: App\Controller\TypeEnseigneController::modifierTypeEnseigne
+
+typeEnseigneSupprimer:
+  path: /type_enseigne/supprimer/{id}
+  controller: App\Controller\TypeEnseigneController::supprimerTypeEnseigne
+
+#responsable
+responsableAjouter:
+  path: /responsable/ajouter
+  controller: App\Controller\ResponsableController::ajouterResponsable
+
+responsableConsulter:
+  path: /responsable/consulter/{id}
+  controller: App\Controller\ResponsableController::consulterResponsable
+
+responsableLister:
+  path: /responsable/lister
+  controller: App\Controller\ResponsableController::listerResponsable
+
+reponsableSupprimer:
+  path: /responsable/supprimer/{id}
+  controller: App\Controller\ResponsableController::supprimerResponsable
+
+reponsableModifier:
+  path: /responsable/modifier/{id}
+  controller: App\Controller\ResponsableController::modifierResponsable
+
+  #interlocuteur
+interlocuteurAjouter:
+  path: /interlocuteur/ajouter
+  controller: App\Controller\InterlocuteurController::ajouterInterlocuteur
+
+interlocuteurConsulter:
+  path: /interlocuteur/consulter/{id}
+  controller: App\Controller\InterlocuteurController::consulterInterlocuteur
+
+interlocuteurLister:
+  path: /interlocuteur/lister
+  controller: App\Controller\InterlocuteurController::listerinterlocuteur
+
+interlocuteurModifier:
+  path: /interlocuteur/modifier/{id}
+  controller: App\Controller\InterlocuteurController::modifierInterlocuteur
+
+    
+interlocuteurSupprimer:
+  path: /interlocuteur/supprimer/{id}
+  controller: App\Controller\InterlocuteurController::supprimerInterlocuteur
+
+#client
+clientAjouter:
+  path: /client/ajouter
+  controller: App\Controller\ClientController::ajouterClient
+
+clientConsulter:
+  path: /client/consulter/{id}
+  controller: App\Controller\ClientController::consulterClient
+
+clientLister:
+  path: /client/lister
+  controller: App\Controller\ClientController::listerClient
+
+clientSupprimer:
+  path: /client/supprimer/{id}
+  controller: App\Controller\ClientController::supprimerClient
+
+clientModifier:
+  path: /client/modifier/{id}
+  controller: App\Controller\ClientController::modifierClient
+  
+
+  #employe
+employeAjouter:
+  path: /employe/ajouter
+  controller: App\Controller\EmployeController::ajouterEmploye
+
+employeConsulter:
+  path: /employe/consulter/{id}
+  controller: App\Controller\EmployeController::consulterEmploye
+
+employeLister:
+  path: /employe/lister
+  controller: App\Controller\EmployeController::listerEmploye
+
+employeModifier:
+  path: /employe/modifier/{id}
+  controller: App\Controller\EmployeController::modifierEmploye
+
+employeSupprimer:
+  path: /employe/supprimer/{id}
+  controller: App\Controller\EmployeController::supprimerEmploye

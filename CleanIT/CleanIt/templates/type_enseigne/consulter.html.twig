@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include('./component/css.html.twig') %}
+
+    </head>
+    <body>  
+    {% include('./component/menu.html.twig') %}  
+       <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">   
+	<h4>Page consultation d'un type d'enseigne</h4>
+    <p>Id du type d'enseigne : {{typeEnseigne.id}}<p>
+    <p>Libelle du type d'enseigne : {{typeEnseigne.libelle}}</p>
+
+    <th><a href="{{path('typeEnseigneModifier', { 'id': typeEnseigne.id }) }}">Modifier le type d'enseigne</a> </th>
+    <th><a href="{{path('typeEnseigneSupprimer', { 'id': typeEnseigne.id }) }}">Supprimer le type d'enseigne</a> </th>
+    </div>
+</section>
+</section>
+    {% include('./component/script.html.twig') %}
+    </body>
+</html>

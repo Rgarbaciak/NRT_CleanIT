@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include('./component/css.html.twig') %}
+    </head>
+    <body>
+     {% include('./component/menu.html.twig') %}  
+        <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">     
+	<h4>Page consultation d'une enseigne</h4>
+    <p>Id de l'enseigne:  {{enseigne.id}}<p>
+    <p>Nom de l'enseigne:  {{enseigne.libelle}}</p>
+    <p>Pays du siège social: {{enseigne.pays}}</p>
+    <p>Ville du siège social:  {{enseigne.ville}}</p>
+    <p>Rue du siège social:  {{enseigne.rue}}</p>
+    <p>Code postal du siège social: {{enseigne.copos}}</p>
+    <br>
+    <br>
+    <br>
+    <th><a href="{{ path('enseigneModifier', { 'id': enseigne.id }) }}">Modifier l'enseigne</a> </th> <br>
+    <th><a href="{{ path('enseigneSupprimer', { 'id': enseigne.id }) }}">Supprimer l'enseigne</a> </th>
+   
+    </div>
+</div>
+</section>
+</section>
+    {% include('./component/script.html.twig') %}
+    </body>
+</html>
