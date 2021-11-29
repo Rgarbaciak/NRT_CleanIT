@@ -15,6 +15,11 @@
     <p>Prenom de l'interlocuteur:  {{interlocuteur.prenom}}</p>
     <p>Téléphone: {{interlocuteur.tel}}</p>
     <p>Mail:  {{interlocuteur.mail}}</p>
+    <p>Magasin:  {{interlocuteur.magasin.libelle}}</p>
+        <br>
+    <br>
+    <br>
+    <a href="{{ path('interlocuteurModifier', { 'id': interlocuteur.id }) }}">Modifier l'interlocuteur</a>
     </div>
 </div>
 </section>

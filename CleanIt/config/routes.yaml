@@ -75,6 +75,10 @@ interlocuteurLister:
   path: /interlocuteur/lister
   controller: App\Controller\InterlocuteurController::listerinterlocuteur
 
+interlocuteurModifier:
+  path: /interlocuteur/modifier/{id}
+  controller: App\Controller\InterlocuteurController::modifierInterlocuteur
+
 #client
 clientAjouter:
   path: /client/ajouter
