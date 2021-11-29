@@ -16,6 +16,13 @@
         {% block javascripts %}{% endblock %}
             
         <h4>LISTE DES RESPONSABLES</h4></br>
+
+        {{ render(controller(
+        'App\\Controller\\SearchController::searchResponsable'
+ )) }}
+ <br>
+        <a class="btn btn-theme" href="{{path('responsableLister')}}">Réinitialliser</a>
+
         <table class="table table-bordered table-striped table-condensed">
         <tr>
                       <th>Nom du responsable</th>

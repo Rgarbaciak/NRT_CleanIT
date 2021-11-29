@@ -17,6 +17,12 @@
         {% block javascripts %}{% endblock %}
            
         <h4>Liste des clients</h4>
+
+              {{ render(controller(
+        'App\\Controller\\SearchController::searchClient'
+ )) }}
+ <br>
+        <a class="btn btn-theme" href="{{path('clientLister')}}">Réinitialliser</a>
         </br>
         <table class="table table-bordered table-striped table-condensed">
         <tr>        <th>Nom</th>

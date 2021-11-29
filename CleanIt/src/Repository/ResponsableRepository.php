@@ -18,6 +18,25 @@ class ResponsableRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Responsable::class);
     }
+    public function findRespByName(string $query)
+    {
+        $qb = $this->createQueryBuilder('p');
+        $qb
+            ->where(
+                $qb->expr()->andX(
+                    $qb->expr()->orX(
+                        $qb->expr()->like('p.nom', ':query'),
+                        
+                    ),
+                    
+                )
+            )
+            ->setParameter('query', '%' . $query . '%')
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
 
     // /**
     //  * @return Responsable[] Returns an array of Responsable objects
