@@ -43,7 +43,6 @@ magasinLister:
 magasinSupprimer:
   path: /magasin/supprimer/{id}
   controller: App\Controller\MagasinController::supprimerMagasin
-  
 
 #typeEnseigne
 typeEnseigneAjouter:
@@ -96,6 +95,18 @@ interlocuteurModifier:
   path: /interlocuteur/modifier/{id}
   controller: App\Controller\InterlocuteurController::modifierInterlocuteur
 
+#client
+clientAjouter:
+  path: /client/ajouter
+  controller: App\Controller\ClientController::ajouterClient
+
+clientConsulter:
+  path: /client/consulter/{id}
+  controller: App\Controller\ClientController::consulterClient
+
+clientLister:
+  path: /client/lister
+  controller: App\Controller\ClientController::listerClient
 interlocuteurSupprimer:
   path: /interlocuteur/supprimer/{id}
   controller: App\Controller\InterlocuteurController::supprimerInterlocuteur
