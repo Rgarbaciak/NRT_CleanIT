@@ -132,10 +132,7 @@ clientSupprimer:
 clientModifier:
   path: /client/modifier/{id}
   controller: App\Controller\ClientController::modifierClient
-
-interlocuteurSupprimer:
-  path: /interlocuteur/supprimer/{id}
-  controller: App\Controller\InterlocuteurController::supprimerInterlocuteur
+  
 
   #employe
 employeAjouter:

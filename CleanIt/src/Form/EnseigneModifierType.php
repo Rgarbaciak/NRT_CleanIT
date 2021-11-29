@@ -22,6 +22,7 @@ class EnseigneModifierType extends AbstractType
             ->add('copos')
             ->add('pays')
             ->add('rue')
+            ->add('type_enseigne',EntityType::class, array('class' => 'App\Entity\TypeEnseigne','choice_label' => 'libelle' )) 
             ->add('enregistrer', SubmitType::class, array('label' => 'Modifier enseigne'))
         ;
     }
