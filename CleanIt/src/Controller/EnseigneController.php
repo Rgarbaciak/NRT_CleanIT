@@ -64,7 +64,6 @@ class EnseigneController extends AbstractController
 
     public function modifierEnseigne($id, Request $request){
  
-        //récupération de l'étudiant dont l'id est passé en paramètre
         $enseigne = $this->getDoctrine()
             ->getRepository(Enseigne::class)
             ->find($id);
