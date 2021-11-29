@@ -18,6 +18,11 @@
     <p>Copos:  {{client.copos}}</p>
     <p>Rue:  {{client.rue}}</p>
     <p>Ville:  {{client.ville}}</p>
+    <br>
+    <br>
+    <br>
+    <th><a href="{{ path('clientModifier', { 'id': client.id }) }}">Modifier le client</a> </th> <br>
+    <th><a href="{{ path('clientSupprimer', { 'id': client.id }) }}">Supprimer le client</a> </th>
     </div>
 </div>
 </section>

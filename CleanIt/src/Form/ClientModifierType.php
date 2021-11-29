@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Magasin;
+use App\Entity\Client;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -10,30 +10,30 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class MagasinModifierType extends AbstractType
+class ClientModifierType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('libelle')
-            ->add('rue')
-            ->add('ville')
+            ->add('nom')
+            ->add('prenom')
             ->add('copos')
-            ->add('pays')
-            ->add('horaires')
-            
-            ->add('enseigne',EntityType::class, array('class' => 'App\Entity\Enseigne','choice_label' => 'libelle' )) 
-            ->add('enregistrer', SubmitType::class, array('label' => 'modifier le magasin'))
+            ->add('ville')
+            ->add('rue')
+            ->add('mail')
+            ->add('tel')
+            ->add('enregistrer', SubmitType::class, array('label' => 'Modifier client'))
         ;
     }
+
     public function getParent(){
-        return MagasinType::class;
+        return ClientType::class;
       }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Magasin::class,
+            'data_class' => Client::class,
         ]);
     }
 }

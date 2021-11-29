@@ -13,6 +13,9 @@
 	<h4>Page consultation d'un type d'enseigne</h4>
     <p>Id du type d'enseigne : {{typeEnseigne.id}}<p>
     <p>Libelle du type d'enseigne : {{typeEnseigne.libelle}}</p>
+
+    <th><a href="{{path('typeEnseigneModifier', { 'id': typeEnseigne.id }) }}">Modifier le type d'enseigne</a> </th>
+    <th><a href="{{path('typeEnseigneSupprimer', { 'id': typeEnseigne.id }) }}">Supprimer le type d'enseigne</a> </th>
     </div>
 </section>
 </section>

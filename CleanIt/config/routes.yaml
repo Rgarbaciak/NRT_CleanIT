@@ -61,6 +61,14 @@ typeEnseigneLister:
   path: /type_enseigne/lister
   controller: App\Controller\TypeEnseigneController::listerTypeEnseigne
 
+typeEnseigneModifier:
+  path: /type_enseigne/modifier/{id}
+  controller: App\Controller\TypeEnseigneController::modifierTypeEnseigne
+
+typeEnseigneSupprimer:
+  path: /type_enseigne/supprimer/{id}
+  controller: App\Controller\TypeEnseigneController::supprimerTypeEnseigne
+
 #responsable
 responsableAjouter:
   path: /responsable/ajouter
@@ -99,6 +107,11 @@ interlocuteurModifier:
   path: /interlocuteur/modifier/{id}
   controller: App\Controller\InterlocuteurController::modifierInterlocuteur
 
+    
+interlocuteurSupprimer:
+  path: /interlocuteur/supprimer/{id}
+  controller: App\Controller\InterlocuteurController::supprimerInterlocuteur
+
 #client
 clientAjouter:
   path: /client/ajouter
@@ -111,6 +124,12 @@ clientConsulter:
 clientLister:
   path: /client/lister
   controller: App\Controller\ClientController::listerClient
-interlocuteurSupprimer:
-  path: /interlocuteur/supprimer/{id}
-  controller: App\Controller\InterlocuteurController::supprimerInterlocuteur
+
+clientSupprimer:
+  path: /client/supprimer/{id}
+  controller: App\Controller\ClientController::supprimerClient
+
+clientModifier:
+  path: /client/modifier/{id}
+  controller: App\Controller\ClientController::modifierClient
+

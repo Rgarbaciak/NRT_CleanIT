@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Client;
 use App\Form\ClientType;
+use App\Form\ClientModifierType;
 use Symfony\Component\HttpFoundation\Request;
 
 class ClientController extends AbstractController
@@ -58,4 +59,50 @@ class ClientController extends AbstractController
             return $this->render('client/lister.html.twig', [
                 'pClient' => $client,]);	
         }
+
+        public function supprimerClient($id, Request $request){
+            $client= $this ->getDoctrine()
+               -> getRepository(Client::class)
+               -> find($id);
+               if (!$client) {
+                   throw $this->createNotFoundException('Aucun client trouvé avec le numéro '.$id);
+               }
+               else
+               {
+                   $entityManager = $this->getDoctrine()->getManager();
+                   $entityManager->remove($client);
+                   $entityManager->flush();
+               }
+    
+               
+           return $this->render('client/supprimer.html.twig');
+        }
+
+        public function modifierClient($id, Request $request){
+ 
+            $client = $this->getDoctrine()
+                ->getRepository(Client::class)
+                ->find($id);
+         
+            if (!$client) {
+                throw $this->createNotFoundException('Aucun client trouvé avec le numéro '.$id);
+            }
+            else
+            {
+                    $form = $this->createForm(ClientModifierType::class, $client);
+                    $form->handleRequest($request);
+         
+                    if ($form->isSubmitted() && $form->isValid()) {
+         
+                         $client = $form->getData();
+                         $entityManager = $this->getDoctrine()->getManager();
+                         $entityManager->persist($client);
+                         $entityManager->flush();
+                         return $this->render('client/consulter.html.twig', ['client' => $client,]);
+                   }
+                   else{
+                        return $this->render('client/modifier.html.twig', array('form' => $form->createView(),));
+                   }
+                }
+         }
 }
