@@ -63,6 +63,7 @@ typeEnseigneLister:
     path: /type_enseigne/lister
     controller: App\Controller\TypeEnseigneController::listerTypeEnseigne
 
+<<<<<<< HEAD
 
 #connexion
 app_login:
@@ -170,3 +171,8 @@ employeSupprimer:
   path: /employe/supprimer/{id}
   controller: App\Controller\EmployeController::supprimerEmploye
 >>>>>>> 78fe3ac6bbaba8314bd9bb8eca783e8a77b9fdba
+=======
+login:
+    path: /security/login
+    controller: App\Controller\SecurityController::login
+>>>>>>> parent of 7395b80 (ajout_connexion)

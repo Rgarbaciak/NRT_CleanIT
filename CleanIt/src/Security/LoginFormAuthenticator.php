@@ -20,7 +20,7 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
 {
     use TargetPathTrait;
 
-    public const LOGIN_ROUTE = 'login';
+    public const LOGIN_ROUTE = 'app_login';
 
     private $urlGenerator;
 
@@ -51,12 +51,12 @@ class LoginFormAuthenticator extends AbstractLoginFormAuthenticator
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
-            return new RedirectResponse('home');
+            return new RedirectResponse($targetPath);
         }
 
      
         return new RedirectResponse($this->urlGenerator->generate('home'));
-        
+        throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     
