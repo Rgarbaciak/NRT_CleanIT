@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Responsable;
 use App\Form\ResponsableType;
+use App\Form\ResponsableModifierType;
 use Symfony\Component\HttpFoundation\Request;
 
 
@@ -77,5 +78,35 @@ class ResponsableController extends AbstractController
            
        return $this->render('responsable/supprimer.html.twig');
     }
+    
+    public function modifierResponsable($id, Request $request){
+ 
+        $responsable = $this->getDoctrine()
+            ->getRepository(Responsable::class)
+            ->find($id);
+     
+        if (!$responsable) {
+            throw $this->createNotFoundException('Aucun Responsable trouvé avec le numéro '.$id);
+        }
+        else
+        {
+                $form = $this->createForm(ResponsableModifierType::class, $responsable);
+                $form->handleRequest($request);
+     
+                if ($form->isSubmitted() && $form->isValid()) {
+     
+                     $responsable = $form->getData();
+                     $entityManager = $this->getDoctrine()->getManager();
+                     $entityManager->persist($responsable);
+                     $entityManager->flush();
+                     return $this->render('responsable/consulter.html.twig', ['responsable' => $responsable,]);
+               }
+               else{
+                    return $this->render('responsable/modifier.html.twig', array('form' => $form->createView(),));
+               }
+            }
+     }
+
+
 
 }

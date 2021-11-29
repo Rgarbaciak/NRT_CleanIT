@@ -17,7 +17,7 @@
     <p>{{responsable.tel}}</p>
     <p>{{responsable.mail}}</p>
 
-
+     <th><a href="{{ path('reponsableModifier', { 'id': responsable.id }) }}">Modifier le responsable</a> </th> <br>
     <th><a href="{{ path('reponsableSupprimer', { 'id': responsable.id }) }}">Supprimer le responsable</a> </th>
     </div>
 </div>

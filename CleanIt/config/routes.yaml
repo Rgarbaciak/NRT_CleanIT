@@ -75,6 +75,10 @@ reponsableSupprimer:
   path: /responsable/supprimer/{id}
   controller: App\Controller\ResponsableController::supprimerResponsable
 
+reponsableModifier:
+  path: /responsable/modifier/{id}
+  controller: App\Controller\ResponsableController::modifierResponsable
+
   #interlocuteur
 interlocuteurAjouter:
   path: /interlocuteur/ajouter
