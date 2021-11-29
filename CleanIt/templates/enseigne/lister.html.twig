@@ -16,7 +16,12 @@
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
            
-        <h4>LISTE DES ENSEIGNES</h4>
+        <h4>Liste des enseignes</h4>
+                         {{ render(controller(
+        'App\\Controller\\SearchController::searchEnseigne'
+ )) }}
+ <br>
+        <a class="btn btn-theme" href="{{path('enseigneLister')}}">Réinitialliser</a>
         </br>
         <table class="table table-bordered table-striped table-condensed">
         <tr>

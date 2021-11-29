@@ -750,6 +750,7 @@
                 }
             ],
             "time": "2021-11-20T08:43:19+00:00"
+<<<<<<< HEAD
         },
         {
             "name": "doctrine/doctrine-fixtures-bundle",
@@ -833,6 +834,8 @@
                 }
             ],
             "time": "2021-10-28T05:46:28+00:00"
+=======
+>>>>>>> 78fe3ac6bbaba8314bd9bb8eca783e8a77b9fdba
         },
         {
             "name": "doctrine/doctrine-migrations-bundle",

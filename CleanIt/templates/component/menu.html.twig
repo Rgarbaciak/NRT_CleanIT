@@ -19,29 +19,30 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href="profile.html"><img src="{{ asset('img/ui-sam.jpg') }}" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href=""><img src="{{ asset('img/ui-sam.jpg') }}" class="img-circle" width="80"></a></p>
           <h5 class="centered">Quelqu'un</h5>
-          <li class="mt">
-            <a class="active" href="{{ path('home')}}">
+          <li class="sub-menu">
+          
+            <a href="{{ path('home')}}">
               <i class="fa fa-dashboard"></i>
               <span>Accueil</span>
-              </a>
+              </a>  
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-desktop"></i>
+              <i class="fa fa-building-o"></i>
               <span>Enseigne</span>
               </a>
             <ul class="sub">
               <li><a href="{{ path('enseigneLister')}}">Liste des enseignes</a></li>
               <li><a href="{{ path('enseigneAjouter')}}">Ajouter une enseigne</a></li>
-              <li><a href="panels.html">Quelque chose enseigne</a></li>
-              <li><a href="font_awesome.html">Quelque chose enseigne</a></li>
+              <li><a href="{{ path('typeEnseigneLister')}}">Liste des types d'enseignes</a></li>
+              <li><a href="{{ path('typeEnseigneAjouter')}}">Ajouter un type d'enseignes</a></li>
             </ul>
           </li>
           <li class="sub-menu">
             <a href="">
-              <i class="fa fa-cogs"></i>
+              <i class="fa fa-cart-arrow-down"></i>
               <span>Magasin</span>
               </a>
             <ul class="sub">
@@ -56,21 +57,24 @@
           </li>
           <li class="sub-menu">
             <a href="javascript:;">
-              <i class="fa fa-book"></i>
-              <span>Extra Pages</span>
+              <i class="fa fa-users"></i>
+              <span>Personnel</span>
               </a>
             <ul class="sub">
-              <li><a href="blank.html">Blank Page</a></li>
-              <li><a href="login.html">Login</a></li>
-              <li><a href="lock_screen.html">Lock Screen</a></li>
-              <li><a href="profile.html">Profile</a></li>
-              <li><a href="invoice.html">Invoice</a></li>
-              <li><a href="pricing_table.html">Pricing Table</a></li>
+              <li><a href="{{ path('responsableLister')}}">Liste des reponsables</a></li>
+              <li><a href="{{ path('responsableAjouter')}}">Ajouter un responsable</a></li>
+              <li><a href="{{ path('interlocuteurLister')}}">Liste des interlocuteur</a></li>
+              <li><a href="{{ path('interlocuteurAjouter')}}">Ajouter un interlocuteur</a></li>
+              <li><a href="{{ path('clientLister')}}">Liste des clients</a></li>
+              <li><a href="{{ path('clientAjouter')}}">Ajouter un client</a></li>
+              <li><a href="{{ path('employeLister')}}">Liste des employe</a></li>
+              <li><a href="{{ path('employeAjouter')}}">Ajouter un employe</a></li>
               <li><a href="faq.html">FAQ</a></li>
               <li><a href="404.html">404 Error</a></li>
               <li><a href="500.html">500 Error</a></li>
             </ul>
           </li>
+          <!---
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-tasks"></i>
@@ -129,7 +133,7 @@
               <span>Google Maps </span>
               </a>
           </li>
-        </ul>
+        </ul-->
         <!-- sidebar menu end-->
       </div>
     </aside>

@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Magasin;
 use App\Form\MagasinType;
+use App\Form\MagasinModifierType;
 use Symfony\Component\HttpFoundation\Request;
 
 class MagasinController extends AbstractController
@@ -59,4 +60,49 @@ class MagasinController extends AbstractController
         return $this->render('magasin/lister.html.twig', [
             'pMagasin' => $magasin,]);	
     }
+    public function supprimerMagasin($id, Request $request){
+        $magasin= $this ->getDoctrine()
+           -> getRepository(Magasin::class)
+           -> find($id);
+           if (!$magasin) {
+               throw $this->createNotFoundException('Aucun magasin trouvé avec le numéro '.$id);
+           }
+           else
+           {
+               $entityManager = $this->getDoctrine()->getManager();
+               $entityManager->remove($magasin);
+               $entityManager->flush();
+           }
+
+           
+       return $this->render('magasin/supprimer.html.twig');
+    }
+
+    public function modifierMagasin($id, Request $request){
+        $magasin = $this->getDoctrine()
+            ->getRepository(Magasin::class)
+            ->find($id);
+     
+        if (!$magasin) {
+            throw $this->createNotFoundException('Aucun magasin trouvé avec le numéro '.$id);
+        }
+        else
+        {
+                $form = $this->createForm(MagasinModifierType::class, $magasin);
+                $form->handleRequest($request);
+     
+                if ($form->isSubmitted() && $form->isValid()) {
+     
+                     $magasin = $form->getData();
+                     $entityManager = $this->getDoctrine()->getManager();
+                     $entityManager->persist($magasin);
+                     $entityManager->flush();
+                     return $this->render('magasin/consulter.html.twig', ['magasin' => $magasin,]);
+               }
+               else{
+                    return $this->render('magasin/modifier.html.twig', array('form' => $form->createView(),));
+               }
+            }
+     }
+
 }

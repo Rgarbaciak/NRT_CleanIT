@@ -8,22 +8,22 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 class MagasinType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+        ->add('libelle')
             ->add('rue')
             ->add('ville')
             ->add('copos')
             ->add('pays')
             ->add('horaires')
-            ->add('enseigne', EntityType::class, array('class' => 'App\Entity\Enseigne','choice_label' => 'libelle' ))
-            ->add('enregistrer', SubmitType::class, array('label' => 'ajouter magasin'))
+            
+            ->add('enseigne',EntityType::class, array('class' => 'App\Entity\Enseigne','choice_label' => 'libelle' )) 
+            ->add('enregistrer', SubmitType::class, array('label' => 'ajouter un magasin'))
         ;
     }
 

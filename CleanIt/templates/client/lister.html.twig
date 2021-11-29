@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Liste des clients</title>
+        {% include('./component/css.html.twig') %}
+    </head>
+    <body>
+     {% include('./component/menu.html.twig') %}
+        <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">
+           
+    {% if pClient != null %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+           
+        <h4>Liste des clients</h4>
+
+              {{ render(controller(
+        'App\\Controller\\SearchController::searchClient'
+ )) }}
+ <br>
+        <a class="btn btn-theme" href="{{path('clientLister')}}">Réinitialliser</a>
+        </br>
+        <table class="table table-bordered table-striped table-condensed">
+        <tr>        <th>Nom</th>
+                      <th>Prénom</th>
+                      <th>Téléphone</th>
+                      <th>Mail</th>
+                     
+                    </tr>
+        {% for e in pClient %}
+        <tr>
+            <th><a href="{{ path('clientConsulter', { 'id': e.id }) }}">{{ e.nom }}</a> </th>
+            <th>{{ e.prenom }}</th>
+            <th>{{ e.tel }}</th>
+            <th>{{ e.mail }}</th>
+        {% endfor %}
+        {% else %}
+         <tr>
+        <td>Aucune client n'a été trouvée.</td>
+        </tr>
+    {% endif %}
+</table>
+	</div>
+</div>
+</section>
+</section>
+	 {% include('./component/script.html.twig') %}
+    </body>
+</html>
