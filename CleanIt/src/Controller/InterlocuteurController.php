@@ -87,4 +87,22 @@ class InterlocuteurController extends AbstractController
                }
             }
      }
+
+     public function supprimerInterlocuteur($id, Request $request){
+        $interlocuteur= $this ->getDoctrine()
+           -> getRepository(Interlocuteur::class)
+           -> find($id);
+           if (!$interlocuteur) {
+               throw $this->createNotFoundException('Aucun interlocuteur trouvé avec le numéro '.$id);
+           }
+           else
+           {
+               $entityManager = $this->getDoctrine()->getManager();
+               $entityManager->remove($interlocuteur);
+               $entityManager->flush();
+           }
+
+           
+       return $this->render('interlocuteur/supprimer.html.twig');
+    }
 }
