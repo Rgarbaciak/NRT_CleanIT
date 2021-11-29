@@ -16,6 +16,11 @@
         {% block javascripts %}{% endblock %}
            
         <h4>Liste des ensegines</h4>
+                 {{ render(controller(
+        'App\\Controller\\SearchController::searchInterlocuteur'
+ )) }}
+ <br>
+        <a class="btn btn-theme" href="{{path('interlocuteurLister')}}">Réinitialliser</a>
         </br>
         <table class="table table-bordered table-striped table-condensed">
         <tr>

@@ -19,6 +19,26 @@ class InterlocuteurRepository extends ServiceEntityRepository
         parent::__construct($registry, Interlocuteur::class);
     }
 
+    public function findByInterlocuteurByName(string $query)
+    {
+        $qb = $this->createQueryBuilder('i');
+        $qb
+            ->where(
+                $qb->expr()->andX(
+                    $qb->expr()->orX(
+                        $qb->expr()->like('i.nom', ':query'),
+                        
+                    ),
+                    
+                )
+            )
+            ->setParameter('query', '%' . $query . '%')
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Interlocuteur[] Returns an array of Interlocuteur objects
     //  */

@@ -19,6 +19,26 @@ class EnseigneRepository extends ServiceEntityRepository
         parent::__construct($registry, Enseigne::class);
     }
 
+    public function findByEnseigneByName(string $query)
+    {
+        $qb = $this->createQueryBuilder('e');
+        $qb
+            ->where(
+                $qb->expr()->andX(
+                    $qb->expr()->orX(
+                        $qb->expr()->like('e.libelle', ':query'),
+                        
+                    ),
+                    
+                )
+            )
+            ->setParameter('query', '%' . $query . '%')
+        ;
+        return $qb
+            ->getQuery()
+            ->getResult();
+    }
+
     // /**
     //  * @return Enseigne[] Returns an array of Enseigne objects
     //  */

@@ -12,7 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use App\Repository\ResponsableRepository;
 use App\Repository\ClientRepository;
 use App\Repository\MagasinRepository;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Repository\InterlocuteurRepository;
+use App\Repository\EnseigneRepository;
 
 class SearchController extends AbstractController
 {
@@ -150,5 +151,88 @@ class SearchController extends AbstractController
         ]);
     }
 
+
+    public function searchInterlocuteur()
+    {
+        $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('interlocuteur'))
+            ->add('query', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Entrez le nom d\'un interlocuteur'
+                ]
+            ])
+
+
+            ->add('recherche', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                ]
+            ])
+
+            
+            ->getForm();
+        return $this->render('search/searchBar.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+     /**
+     * @Route("/interlocuteur", name="interlocuteur")
+     * @param Request $request
+     */
+    public function interlocuteur(Request $request, InterlocuteurRepository $interlocuteur)
+    {
+        $query = $request->request->get('form')['query'];
+        
+        if($query) {
+            $interlocuteurs = $interlocuteur->findByInterlocuteurByName($query);
+        }
+        return $this->render('interlocuteur/lister.html.twig', [
+            'pInterlocuteur' => $interlocuteurs
+        ]);
+    }
+    public function searchEnseigne()
+    {
+        $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('enseigne'))
+            ->add('query', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Entrez le nom d\'une enseigne'
+                ]
+            ])
+
+
+            ->add('recherche', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                ]
+            ])
+
+            
+            ->getForm();
+        return $this->render('search/searchBar.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+     /**
+     * @Route("/enseigne", name="enseigne")
+     * @param Request $request
+     */
+    public function enseigne(Request $request, EnseigneRepository $enseigne)
+    {
+        $query = $request->request->get('form')['query'];
+        
+        if($query) {
+            $enseigne = $enseigne->findByEnseigneByName($query);
+        }
+        return $this->render('enseigne/lister.html.twig', [
+            'pEnseigne' => $enseigne
+        ]);
+    }
 
 }
