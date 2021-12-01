@@ -40,6 +40,8 @@ class MagasinRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+
+
     // /**
     //  * @return Magasin[] Returns an array of Magasin objects
     //  */

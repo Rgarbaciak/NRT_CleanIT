@@ -39,6 +39,38 @@ class EnseigneRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function findByMagasinpByNameByIdEnseigne(string $query,int $id) 
+    {
+        
+       
+        
+        $conn = $this->getEntityManager()->getConnection();
+        $sql =  "
+        Select *
+        from enseigne 
+        INNER JOIN magasin on magasin.enseigne_id=enseigne.id
+        WHERE magasin.libelle = ?
+        AND enseigne.id =  ?
+        ";
+        
+        $stmt = $conn->prepare($sql);
+       $stmt -> bindValue(1,$query);
+       $stmt  -> bindValue(2,$id);
+       
+       $resultSet=$stmt->executeQuery();;
+       echo($query);
+ 
+
+       
+             
+
+            
+        // returns an array of arrays (i.e. a raw data set)
+        return $resultSet;
+       
+            
+    }
+
     // /**
     //  * @return Enseigne[] Returns an array of Enseigne objects
     //  */

@@ -14,6 +14,7 @@ use App\Repository\ClientRepository;
 use App\Repository\MagasinRepository;
 use App\Repository\InterlocuteurRepository;
 use App\Repository\EnseigneRepository;
+use App\Entity\Enseigne;
 
 class SearchController extends AbstractController
 {
@@ -193,6 +194,7 @@ class SearchController extends AbstractController
             'pInterlocuteur' => $interlocuteurs
         ]);
     }
+
     public function searchEnseigne()
     {
         $form = $this->createFormBuilder()
@@ -232,6 +234,56 @@ class SearchController extends AbstractController
         }
         return $this->render('enseigne/lister.html.twig', [
             'pEnseigne' => $enseigne
+        ]);
+    }
+
+
+    public function searchMagasinInEnseigne(int $id)
+    {
+         $id;
+        $form = $this->createFormBuilder()
+            ->setAction($this->generateUrl('enseigne'))
+            ->add('query', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'class' => 'form-control',
+                    'placeholder' => 'Entrez le nom d\'un magasin'
+                ]
+            ])
+            
+
+
+            ->add('recherche', SubmitType::class, [
+                'attr' => [
+                    'class' => 'btn btn-primary'
+                ]
+            ])
+
+            ->getForm();
+        return $this->render('search/searchBar.html.twig', [
+            'form' => $form->createView()
+        ]);
+    }
+
+     /**
+     * @Route("/enseigne/consulter/{id}", name="enseigneConsulter")
+     * @param Request $request
+     */
+    public function magasinInEnseigne(Request $request, EnseigneRepository $enseigne)
+    {
+        $query = $request->request->get('form')['query'];
+        $id = $request ->request->get('id');
+        
+        if($query and $id) {
+            $magasins = $enseigne->findByMagasinpByNameByIdEnseigne($query,$id);
+            $enseigne = $this->getDoctrine()
+            ->getRepository(Enseigne::class)
+            ->find($id);
+        }
+        return $this->render('enseigne/consulter.html.twig', [
+            'pMagasin' => $magasins,
+            'enseigne'=>$enseigne
+            
         ]);
     }
 

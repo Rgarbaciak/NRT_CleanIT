@@ -10,32 +10,95 @@
       <section class="wrapper">
         <div class="row">
           <div class="col-lg-4 main-chart">   
-                <div class ="row content-panel">
+                <div class ="showback">
                    
-	<h5>Magasin : consultation </h5>
+	<h4> <i class="fa fa-angle-right"></i> Magasin : consultation </h4>
 
     <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{magasin.id}}</p>
     <p><span class="message-p message" style="font-size:15px">Libelle :</span>&nbsp;&nbsp;&nbsp;{{magasin.libelle}}</p>
-    <p>{{magasin.pays}}</p>
-    <p>{{magasin.copos}}</p>
-    <p>{{magasin.ville}}</p>
-    <p>{{magasin.rue}}</p>
-    <p>{{magasin.horaires}}</p>
-    <p>Enseigne : {{magasin.enseigne.libelle}}</p>
+    <p><span class="message-p message" style="font-size:15px">Adresse :</span>&nbsp;&nbsp;&nbsp;{{magasin.rue}}</p>
+     <p><span class="message-p message" style="font-size:15px">Code Postal :</span>&nbsp;&nbsp;&nbsp;{{magasin.copos}}</p>
+     <p><span class="message-p message" style="font-size:15px">Ville :</span>&nbsp;&nbsp;&nbsp;{{magasin.ville}}</p>
+    <p><span class="message-p message" style="font-size:15px">Pays :</span>&nbsp;&nbsp;&nbsp;{{magasin.pays}}</p>
+    <p><span class="message-p message" style="font-size:15px">Horraires :</span>&nbsp;&nbsp;&nbsp;{{magasin.horaires}}</p>
+    <p><span class="message-p message" style="font-size:15px">Enseigne :</span>&nbsp;&nbsp;&nbsp;<a href="{{ path('enseigneConsulter', { 'id': magasin.enseigne.id }) }}"> {{magasin.enseigne.libelle}}<a></p>
+
     
 
    
     
-    <th><button href="{{ path('magasinModifier', { 'id': magasin.id }) }}">Modifier le magasin</button> </th> 
+    <th><a type="button" class ="btn btn-warning" href="{{ path('magasinModifier', { 'id': magasin.id }) }}">Modifier le magasin</a> </th> 
     <div class="pull-right"  >
-    <th><button href="{{ path('magasinSupprimer', { 'id': magasin.id }) }}">Supprimer le magasin</button> </th><br>
+    <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer le magasin</button> </th><br>
     </div>
     
      </div>
     </div>
+    <div class="row">
+  <div class="col-lg-4 main-chart">   
+                <div class ="showback">
+                   
+	<h4> <i class="fa fa-angle-right"></i> Enseigne : consultation </h4>
+
+    <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{magasin.enseigne.id}}</p>
+    <p><span class="message-p message" style="font-size:15px">Libelle :</span>&nbsp;&nbsp;&nbsp;{{magasin.enseigne.libelle}}</p>
+    <p><span class="message-p message" style="font-size:15px">Adresse :</span>&nbsp;&nbsp;&nbsp;{{magasin.enseigne.rue}}</p>
+     <p><span class="message-p message" style="font-size:15px">Code Postal :</span>&nbsp;&nbsp;&nbsp;{{magasin.enseigne.copos}}</p>
+     <p><span class="message-p message" style="font-size:15px">Ville :</span>&nbsp;&nbsp;&nbsp;{{magasin.enseigne.ville}}</p>
+    <p><span class="message-p message" style="font-size:15px">Pays :</span>&nbsp;&nbsp;&nbsp;{{magasin.enseigne.pays}}</p>
+    </div>
+    </div>
+    </div>
+<div class="col-lg-4 main-chart ">
+<div class="content-panel">
+<h4><i class="fa fa-angle-right"> </i> Interlocuteur </h4>
+<table class="table table-bordered table-striped table-condensed">
+
+<thead>
+<tr>
+<th> Nom</th>
+<th> Prénom</th>
+</tr>
+</thead>
+<tbody>
+
+{% for i in magasin.interlocuteurs %}
+<td> {{i.Nom}} </td>
+<td> {{i.Prenom}} </td>
+{% endfor %}
+</trbody>
+</table>
+</div>
+</div>
 </div>
 </section>
 </section>
+
     {% include('./component/script.html.twig') %}
     </body>
+
+    <!--Modal-->
+    <div class="modal fade" id="validationSuppresion" tabindex="-1" role="dialog" aria-labelledby="validationSuppresionLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûre de vouloir supprimer ce magasin ?</h5>
+      </div>
+      <div class="modal-body">
+        <p> Vous allez supprimer le magasin appelé : {{magasin.libelle}}</p>
+        <div class="alert alert-warning">
+        <b> Attention ! <b/> <br>
+        <p> Faire cette suppression egendra la suppression de l'interlocuteur en charge du magasin. </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
+        <a type="button" class="btn btn-primary" href="{{ path('magasinSupprimer', { 'id': magasin.id }) }}">Supprimer</a>
+      </div>
+    </div>
+  </div>
+</div>
 </html>

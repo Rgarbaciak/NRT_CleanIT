@@ -52,7 +52,9 @@ class EnseigneController extends AbstractController
             }
     
             return $this->render('enseigne/consulter.html.twig', [
-                'enseigne' => $enseigne,]);
+                'enseigne' => $enseigne,
+                'pMagasin' => null,
+            ]);
     }
 
     public function listerEnseigne(){
