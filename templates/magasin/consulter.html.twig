@@ -9,21 +9,29 @@
        <section id="main-content">
       <section class="wrapper">
         <div class="row">
-          <div class="col-lg-9 main-chart">   
-	<h5>Page consultation d'une magasin</h5>
-    <p>{{magasin.id}}<p>
-    <p>{{magasin.libelle}}</p>
+          <div class="col-lg-4 main-chart">   
+                <div class ="row content-panel">
+                   
+	<h5>Magasin : consultation </h5>
+
+    <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{magasin.id}}</p>
+    <p><span class="message-p message" style="font-size:15px">Libelle :</span>&nbsp;&nbsp;&nbsp;{{magasin.libelle}}</p>
     <p>{{magasin.pays}}</p>
     <p>{{magasin.copos}}</p>
     <p>{{magasin.ville}}</p>
     <p>{{magasin.rue}}</p>
     <p>{{magasin.horaires}}</p>
     <p>Enseigne : {{magasin.enseigne.libelle}}</p>
+    
 
-    <th><a href="{{ path('magasinSupprimer', { 'id': magasin.id }) }}">Supprimer le magasin</a> </th><br>
-
-    <th><a href="{{ path('magasinModifier', { 'id': magasin.id }) }}">Modifier le magasin</a> </th> <br>
-
+   
+    
+    <th><button href="{{ path('magasinModifier', { 'id': magasin.id }) }}">Modifier le magasin</button> </th> 
+    <div class="pull-right"  >
+    <th><button href="{{ path('magasinSupprimer', { 'id': magasin.id }) }}">Supprimer le magasin</button> </th><br>
+    </div>
+    
+     </div>
     </div>
 </div>
 </section>

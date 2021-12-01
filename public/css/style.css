@@ -1203,6 +1203,7 @@ PANELS CONFIGURATIONS
 .message-p name {
 	color: #ed5565;
 	font-weight: 700;
+    
 }
 .message-p .message {
 	font-size: 12px;
