@@ -107,7 +107,6 @@ interlocuteurModifier:
   path: /interlocuteur/modifier/{id}
   controller: App\Controller\InterlocuteurController::modifierInterlocuteur
 
-    
 interlocuteurSupprimer:
   path: /interlocuteur/supprimer/{id}
   controller: App\Controller\InterlocuteurController::supprimerInterlocuteur
@@ -132,7 +131,6 @@ clientSupprimer:
 clientModifier:
   path: /client/modifier/{id}
   controller: App\Controller\ClientController::modifierClient
-  
 
   #employe
 employeAjouter:

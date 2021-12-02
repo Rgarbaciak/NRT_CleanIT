@@ -9,7 +9,7 @@
    
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
-          <li><a class="logout" href="{{ path('index')}}">Déconnexion</a></li>
+          <li><a class="logout" href="{{ path('app_logout')}}">Déconnexion</a></li>
         </ul>
       </div>
     </header>
@@ -20,7 +20,7 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><a href=""><img src="{{ asset('img/ui-sam.jpg') }}" class="img-circle" width="80"></a></p>
-          <h5 class="centered">Quelqu'un</h5>
+          <h5 class="centered">{{app.user.username}}</h5>
           <li class="sub-menu">
           
             <a href="{{ path('home')}}">
