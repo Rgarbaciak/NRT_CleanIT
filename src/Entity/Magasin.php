@@ -60,9 +60,21 @@ class Magasin
      */
     private $interlocuteurs;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Carte::class, mappedBy="magasin")
+     */
+    private $cartes;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Fidelite::class, mappedBy="magasin")
+     */
+    private $fidelites;
+
     public function __construct()
     {
         $this->interlocuteurs = new ArrayCollection();
+        $this->cartes = new ArrayCollection();
+        $this->fidelites = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -178,6 +190,66 @@ class Magasin
             // set the owning side to null (unless already changed)
             if ($interlocuteur->getMagasin() === $this) {
                 $interlocuteur->setMagasin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Carte[]
+     */
+    public function getCartes(): Collection
+    {
+        return $this->cartes;
+    }
+
+    public function addCarte(Carte $carte): self
+    {
+        if (!$this->cartes->contains($carte)) {
+            $this->cartes[] = $carte;
+            $carte->setMagasin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCarte(Carte $carte): self
+    {
+        if ($this->cartes->removeElement($carte)) {
+            // set the owning side to null (unless already changed)
+            if ($carte->getMagasin() === $this) {
+                $carte->setMagasin(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Fidelite[]
+     */
+    public function getFidelites(): Collection
+    {
+        return $this->fidelites;
+    }
+
+    public function addFidelite(Fidelite $fidelite): self
+    {
+        if (!$this->fidelites->contains($fidelite)) {
+            $this->fidelites[] = $fidelite;
+            $fidelite->setMagasin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFidelite(Fidelite $fidelite): self
+    {
+        if ($this->fidelites->removeElement($fidelite)) {
+            // set the owning side to null (unless already changed)
+            if ($fidelite->getMagasin() === $this) {
+                $fidelite->setMagasin(null);
             }
         }
 

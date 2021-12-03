@@ -64,10 +64,16 @@ class Enseigne
      */
     private $responsables;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Carte::class, mappedBy="enseinge", orphanRemoval=true)
+     */
+    private $cartes;
+
     public function __construct()
     {
         $this->magasins = new ArrayCollection();
         $this->responsables = new ArrayCollection();
+        $this->cartes = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -213,6 +219,36 @@ class Enseigne
             // set the owning side to null (unless already changed)
             if ($responsable->getEnseigne() === $this) {
                 $responsable->setEnseigne(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Carte[]
+     */
+    public function getCartes(): Collection
+    {
+        return $this->cartes;
+    }
+
+    public function addCarte(Carte $carte): self
+    {
+        if (!$this->cartes->contains($carte)) {
+            $this->cartes[] = $carte;
+            $carte->setEnseinge($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCarte(Carte $carte): self
+    {
+        if ($this->cartes->removeElement($carte)) {
+            // set the owning side to null (unless already changed)
+            if ($carte->getEnseinge() === $this) {
+                $carte->setEnseinge(null);
             }
         }
 

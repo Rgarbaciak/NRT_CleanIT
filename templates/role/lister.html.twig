@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Liste des roles</title>
+        {% include('./component/css.html.twig') %}
+    </head>
+    <body>
+     {% include('./component/menu.html.twig') %}
+        <section id="main-content">
+      <section class="wrapper">
+        <div class="row">
+          <div class="col-lg-9 main-chart">
+           
+    {% if pRole != null %}
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+           
+        <h4>Liste des ensegines</h4>
+
+        </br>
+        <table class="table table-bordered table-striped table-condensed">
+        <tr>
+            <th>Role</th>  
+        </tr>
+        {% for e in pRole %}
+        <tr>
+            <th>{{ e.libelle }}</th>
+        {% endfor %}
+        {% else %}
+         <tr>
+        <td>Aucune role n'a été trouvée.</td>
+        </tr>
+    {% endif %}
+</table>
+	</div>
+</div>
+</section>
+</section>
+	 {% include('./component/script.html.twig') %}
+    </body>
+</html>

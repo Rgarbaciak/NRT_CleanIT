@@ -132,7 +132,7 @@ clientModifier:
   path: /client/modifier/{id}
   controller: App\Controller\ClientController::modifierClient
 
-  #employe
+#employe
 employeAjouter:
   path: /employe/ajouter
   controller: App\Controller\EmployeController::ajouterEmploye
@@ -152,3 +152,11 @@ employeModifier:
 employeSupprimer:
   path: /employe/supprimer/{id}
   controller: App\Controller\EmployeController::supprimerEmploye
+
+#role
+roleAjouter:
+  path: /role/ajouter
+  controller: App\Controller\RoleController::ajouterRole
+roleLister:
+  path: /role/lister
+  controller: App\Controller\RoleController::listerRole
