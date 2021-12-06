@@ -31,7 +31,7 @@ class InterlocuteurModifierType extends AbstractType
             ->add('tel',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
-                    'maxlength' => 50
+                    'maxlength' => 5
                 ]
             ])
             ->add('mail',TextType::class,[

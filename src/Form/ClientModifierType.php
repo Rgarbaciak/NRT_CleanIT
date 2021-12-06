@@ -28,9 +28,10 @@ class ClientModifierType extends AbstractType
                 ]
             ])
             ->add('copos',TextType::class,[
+                'label'=>'Code Postal',
                 'attr' =>[
                     'class'=> 'form-control',
-                    'maxlength' => 50
+                    'maxlength' => 5
                 ]
             ])
             ->add('ville',TextType::class,[
@@ -54,7 +55,7 @@ class ClientModifierType extends AbstractType
             ->add('tel',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
-                    'maxlength' => 50
+                    'maxlength' => 150
                 ]
             ])
             ->add('enregistrer', SubmitType::class,[

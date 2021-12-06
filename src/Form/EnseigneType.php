@@ -35,9 +35,10 @@ class EnseigneType extends AbstractType
                 ]
             ])
             ->add('copos',TextType::class,[
+                'label'=>'Code Postal',
                 'attr' =>[
                     'class'=> 'form-control',
-                    'maxlength' => 50
+                    'maxlength' => 5
                 ]
             ])
             ->add('pays',TextType::class,[

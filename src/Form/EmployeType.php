@@ -30,7 +30,7 @@ class EmployeType extends AbstractType
                 ]
             ])
             ->add('tel',TextType::class,[
-                'post_max_size_message' => 10,
+               
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 10
@@ -38,6 +38,7 @@ class EmployeType extends AbstractType
                 ]
             ])
             ->add('copos',TextType::class,[
+                'label'=>'Code Postal',
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 5
