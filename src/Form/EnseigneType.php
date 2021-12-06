@@ -42,9 +42,11 @@ class EnseigneType extends AbstractType
                 ]
             ])
             ->add('pays',TextType::class,[
+                'data' =>'France' ,
                 'attr' =>[
                     'class'=> 'form-control',
-                    'maxlength' => 50
+                    'maxlength' => 50,
+                    
                 ]
             ])
             ->add('rue',TextType::class,[
