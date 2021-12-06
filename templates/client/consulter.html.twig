@@ -16,6 +16,11 @@
     <p><span class="message-p message" style="font-size:15px">Prenom :</span>&nbsp;&nbsp;&nbsp;{{client.prenom}}</p>
     <p><span class="message-p message" style="font-size:15px">Téléphone :</span>&nbsp;&nbsp;&nbsp; {{client.tel}}</p>
     <p><span class="message-p message" style="font-size:15px">Adresse Mail :</span>&nbsp;&nbsp;&nbsp;{{client.mail}}</p>
+    
+    {% for m in client.cartes  %}
+    <p><span class="message-p message" style="font-size:15px">Numéro carte :</span>&nbsp;&nbsp;&nbsp;{{m.numero}}</p>
+    {% endfor %}
+
     <p><span class="message-p message" style="font-size:15px">Code Postal :</span>&nbsp;&nbsp;&nbsp;{{client.copos}}</p>
     <p><span class="message-p message" style="font-size:15px">Adresse :</span>&nbsp;&nbsp;&nbsp;{{client.rue}}</p>
     <p><span class="message-p message" style="font-size:15px">Ville :</span>&nbsp;&nbsp;&nbsp;{{client.ville}}</p>
