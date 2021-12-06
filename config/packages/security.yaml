@@ -39,7 +39,8 @@ security:
     - { path: ^/home, roles: ROLE_USER } 
     #- { path: ^/profil, roles: ROLE_USER }
          
-    - { path: ^/client, roles: ROLE_HOTLINER }        
+    - { path: ^/client, roles: ROLE_HOTLINER }  
+    - { path: ^/magasin, roles: ROLE_HOTLINER }      
     
     - { path: ^/enseigne, roles: ROLE_COMMERCIAL }
     - { path: ^/type_enseigne, roles: ROLE_COMMERCIAL }
