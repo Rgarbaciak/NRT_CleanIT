@@ -41,6 +41,7 @@ class MagasinType extends AbstractType
                 ]
             ])
             ->add('pays',TextType::class,[
+                'data' =>'France' ,
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50

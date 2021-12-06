@@ -5,9 +5,10 @@
     </head>
     <body>
      {% include('./component/menu.html.twig') %}  
-        <section id="main-content">
+       <section id="main-content">
       <section class="wrapper">
         <div class="row">
+<<<<<<< HEAD
           <div class="col-lg-9 main-chart">     
 	<h4>Employe : Consultation</h4>
     <p>Id du employe:  {{employe.id}}<p>
@@ -18,16 +19,51 @@
     <p>Copos:  {{employe.copos}}</p>
     <p>Rue:  {{employe.rue}}</p>
     <p>Ville:  {{employe.ville}}</p>
+=======
+          <div class="col-lg-4 main-chart">   
+                <div class ="showback">    
+		<h4> <i class="fa fa-angle-right"></i> Employé : Consultation </h4>     
+    <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{employe.id}}<p>
+    <p><span class="message-p message" style="font-size:15px">Nom :</span>&nbsp;&nbsp;&nbsp;{{employe.nom}}</p>
+    <p><span class="message-p message" style="font-size:15px">Prenom :</span>&nbsp;&nbsp;&nbsp;{{employe.prenom}}</p>
+    <p><span class="message-p message" style="font-size:15px">Téléphone :</span>&nbsp;&nbsp;&nbsp;{{employe.tel}}</p>
+    <p><span class="message-p message" style="font-size:15px">Adresse Mail :</span>&nbsp;&nbsp;&nbsp;{{employe.mail}}</p>
+    <p><span class="message-p message" style="font-size:15px">Adresse : </span>&nbsp;&nbsp;&nbsp;  {{employe.rue}}</p>
+                <p><span class="message-p message" style="font-size:15px">Ville : </span>&nbsp;&nbsp;&nbsp;  {{employe.ville}}</p>
+                <p><span class="message-p message" style="font-size:15px">Code postal : </span>&nbsp;&nbsp;&nbsp; {{employe.copos}}</p>
+                <p><span class="message-p message" style="font-size:15px">Pays : </span>&nbsp;&nbsp;&nbsp; {{employe.pays}}</p>
+>>>>>>> 7cbd727a5c42b8d69fc9e673f45684383970fca6
     <br>
     <br>
     <br>
-    <a href="{{ path('employeModifier', { 'id': employe.id }) }}">Modifier l'employe</a> 
-    <br>
-    <a href="{{ path('employeSupprimer', { 'id': employe.id }) }}">Supprimer l'employe</a>
+    <th><a type="button" class ="btn btn-warning" href="{{ path('employeModifier', { 'id': employe.id }) }}">Modifier l'employe</a> 
+    <div class="pull-right" >
+    <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer le magasin</button> </th><br>
     </div>
 </div>
 </section>
 </section>
     {% include('./component/script.html.twig') %}
     </body>
+        <!--Modal-->
+    <div class="modal fade" id="validationSuppresion" tabindex="-1" role="dialog" aria-labelledby="validationSuppresionLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûre de vouloir supprimer cet employé ?</h5>
+      </div>
+      <div class="modal-body">
+        <p> Vous allez supprimer l'employé appelé : {{employe.nom}} {{employe.prenom}}</p>
+
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
+        <a type="button" class="btn btn-primary" href="{{ path('employeSupprimer', { 'id': employe.id }) }}">Supprimer</a>
+      </div>
+    </div>
+  </div>
+</div>
 </html>

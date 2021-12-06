@@ -59,6 +59,11 @@ class Client
      */
     private $cartes;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pays;
+
     public function __construct()
     {
         $this->cartes = new ArrayCollection();
@@ -179,6 +184,18 @@ class Client
                 $carte->setClient(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPays(): ?string
+    {
+        return $this->pays;
+    }
+
+    public function setPays(?string $pays): self
+    {
+        $this->pays = $pays;
 
         return $this;
     }

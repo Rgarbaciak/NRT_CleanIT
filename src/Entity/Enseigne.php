@@ -69,6 +69,11 @@ class Enseigne
      */
     private $cartes;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true, length=9)
+     */
+    private $SIRET;
+
     public function __construct()
     {
         $this->magasins = new ArrayCollection();
@@ -251,6 +256,18 @@ class Enseigne
                 $carte->setEnseinge(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getSIRET(): ?int
+    {
+        return $this->SIRET;
+    }
+
+    public function setSIRET(?int $SIRET): self
+    {
+        $this->SIRET = $SIRET;
 
         return $this;
     }

@@ -5,9 +5,10 @@
     </head>
     <body>
      {% include('./component/menu.html.twig') %}  
-        <section id="main-content">
+       <section id="main-content">
       <section class="wrapper">
         <div class="row">
+<<<<<<< HEAD
           <div class="col-lg-9 main-chart">     
 	<h4>Interlocuteur : Consultation</h4>
     <p>Id de l'interlocuteur:  {{interlocuteur.id}}<p>
@@ -16,15 +17,50 @@
     <p>Téléphone: {{interlocuteur.tel}}</p>
     <p>Mail:  {{interlocuteur.mail}}</p>
     <p>Magasin:  {{interlocuteur.magasin.libelle}}</p>
+=======
+          <div class="col-lg-5 main-chart">   
+                <div class ="showback">    
+		<h4> <i class="fa fa-angle-right"></i> Interlocuteur : Consultation </h4>  
+    <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.id}}<p>
+    <p><span class="message-p message" style="font-size:15px">Nom :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.nom}}</p>
+    <p><span class="message-p message" style="font-size:15px">Prenom :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.prenom}}</p>
+    <p><span class="message-p message" style="font-size:15px">Téléphone :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.tel}}</p>
+    <p><span class="message-p message" style="font-size:15px">Adresse Mail :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.mail}}</p>
+    <p><span class="message-p message" style="font-size:15px">Magasin :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.libelle}}</p>
+>>>>>>> 7cbd727a5c42b8d69fc9e673f45684383970fca6
         <br>
     <br>
     <br>
-    <a href="{{ path('interlocuteurModifier', { 'id': interlocuteur.id }) }}">Modifier l'interlocuteur</a> <br>
-    <th><a href="{{ path('interlocuteurSupprimer', { 'id': interlocuteur.id }) }}">Supprimer l'interlocuteur</a> </th>
-    </div>
+   <th><a type="button" class ="btn btn-warning" href="{{ path('interlocuteurModifier', { 'id': interlocuteur.id }) }}">Modifier l'interlocuteur</a> 
+    <div class="pull-right">
+    <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer l'enseigne</button> </th> <br>
+      </div>
 </div>
 </section>
 </section>
     {% include('./component/script.html.twig') %}
     </body>
+
+            <!--Modal-->
+    <div class="modal fade" id="validationSuppresion" tabindex="-1" role="dialog" aria-labelledby="validationSuppresionLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûre de vouloir supprimer cet interlocuteur ?</h5>
+      </div>
+      <div class="modal-body">
+        <p> Vous allez supprimer l'interlocuteur appelé : {{interlocuteur.nom}} {{interlocuteur.prenom}}</p>
+        
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
+        <a type="button" class="btn btn-primary" href="{{ path('interlocuteurSupprimer', { 'id': interlocuteur.id }) }}">Supprimer</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 </html>
