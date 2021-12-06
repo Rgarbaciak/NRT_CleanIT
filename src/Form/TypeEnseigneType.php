@@ -16,9 +16,19 @@ class TypeEnseigneType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('libelle')
-            ->add('enregistrer', SubmitType::class, array('label' => 'ajouter un type d enseigne'))
-        ;
+            ->add('libelle',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('enregistrer', SubmitType::class,[
+                'label'=>'Ajouter le type d\'enseigne ',
+                'attr'=>[
+                    'class'=>'btn btn-theme'
+                    
+                ]
+            ])        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

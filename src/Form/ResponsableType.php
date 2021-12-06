@@ -15,13 +15,38 @@ class ResponsableType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('tel')
-            ->add('mail')
+            ->add('nom',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('prenom',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('tel',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('mail',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
             ->add('enseigne',EntityType::class, array('class' => 'App\Entity\Enseigne','choice_label' => 'libelle' ))
-            ->add('enregistrer', SubmitType::class, array('label' => 'ajouter un responsable'))
-            ;
+            ->add('enregistrer', SubmitType::class,[
+                'label'=>'Ajouter le responsable',
+                'attr'=>[
+                    'class'=>'btn btn-theme'
+                    
+                ]
+            ])            ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

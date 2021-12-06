@@ -16,15 +16,50 @@ class EnseigneType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('libelle')
-            ->add('logo')
-            ->add('ville')
-            ->add('copos')
-            ->add('pays')
-            ->add('rue')
+            ->add('libelle',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('logo',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('ville',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('copos',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('pays',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('rue',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
             ->add('type_enseigne',EntityType::class, array('class' => 'App\Entity\TypeEnseigne','choice_label' => 'libelle' )) 
-            ->add('enregistrer', SubmitType::class, array('label' => 'ajouter enseigne'))
-        ;
+            ->add('enregistrer', SubmitType::class,[
+                'label'=>'Ajouter l\'enseigne',
+                'attr'=>[
+                    'class'=>'btn btn-theme'
+                    
+                ]
+            ])        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

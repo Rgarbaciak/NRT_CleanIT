@@ -16,7 +16,19 @@ class TypeEnseigneModifierType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('libelle')
+            ->add('libelle',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('enregistrer', SubmitType::class,[
+                'label'=>'Modifier le type d\'enseigne',
+                'attr'=>[
+                    'class'=>'btn btn-theme'
+                    
+                ]
+            ])
         ;
     }
 

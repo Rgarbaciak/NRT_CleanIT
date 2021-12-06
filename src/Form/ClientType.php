@@ -15,15 +15,55 @@ class ClientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('copos')
-            ->add('ville')
-            ->add('rue')
-            ->add('mail')
-            ->add('tel')
-            ->add('enregistrer', SubmitType::class, array('label' => 'Créer client'))
-        ;
+            ->add('nom',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('prenom',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('copos',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('ville',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('rue',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('mail',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('tel',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('enregistrer', SubmitType::class,[
+                'label'=>'Ajouter le client',
+                'attr'=>[
+                    'class'=>'btn btn-theme'
+                    
+                ]
+            ])        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void

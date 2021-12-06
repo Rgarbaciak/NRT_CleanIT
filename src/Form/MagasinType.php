@@ -15,16 +15,51 @@ class MagasinType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-        ->add('libelle')
-            ->add('rue')
-            ->add('ville')
-            ->add('copos')
-            ->add('pays')
-            ->add('horaires')
+        ->add('libelle',TextType::class,[
+            'attr' =>[
+                'class'=> 'form-control',
+                'maxlength' => 50
+            ]
+        ])
+            ->add('rue',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('ville',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('copos',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('pays',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            ->add('horaires',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
             
             ->add('enseigne',EntityType::class, array('class' => 'App\Entity\Enseigne','choice_label' => 'libelle' )) 
-            ->add('enregistrer', SubmitType::class, array('label' => 'ajouter un magasin'))
-        ;
+            ->add('enregistrer', SubmitType::class,[
+                'label'=>'Ajouter le magasin',
+                'attr'=>[
+                    'class'=>'btn btn-theme'
+                    
+                ]
+            ])        ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
