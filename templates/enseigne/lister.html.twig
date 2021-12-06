@@ -24,6 +24,7 @@
                       <th>Nom de l'enseigne</th>
                       <th>Ville du siège social</th>
                       <th class="numeric">Pays du siège social</th>
+                      <th >Siret de l'enseigne</th>
                      
                     </tr>
         {% for e in pEnseigne %}
@@ -31,6 +32,7 @@
             <th><a href="{{ path('enseigneConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a> </th>
             <th>{{ e.ville }} </th>
             <th>{{ e.pays }} </th>
+            <th>{{ e.siret }} </th>
         {% endfor %}
         {% else %}
          <tr>
