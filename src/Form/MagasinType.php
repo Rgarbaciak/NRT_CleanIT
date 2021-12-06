@@ -16,6 +16,7 @@ class MagasinType extends AbstractType
     {
         $builder
         ->add('libelle',TextType::class,[
+            'label'=>'Nom',
             'attr' =>[
                 'class'=> 'form-control',
                 'maxlength' => 50

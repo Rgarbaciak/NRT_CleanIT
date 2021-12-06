@@ -17,6 +17,7 @@ class EnseigneModifierType extends AbstractType
     {
         $builder
             ->add('libelle',TextType::class,[
+                'label'=>'Nom',
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
@@ -41,6 +42,7 @@ class EnseigneModifierType extends AbstractType
                     'maxlength' => 5
                 ]
             ])
+
             ->add('pays',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
@@ -52,15 +54,27 @@ class EnseigneModifierType extends AbstractType
                     'class'=> 'form-control',
                     'maxlength' => 50
                 ]
-            ])
+            ])    
+
+            ->add('siret',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 9
+                ]
+            ])        
+          
             ->add('type_enseigne',EntityType::class, array('class' => 'App\Entity\TypeEnseigne','choice_label' => 'libelle' )) 
+                      
+            
+                        
             ->add('enregistrer', SubmitType::class,[
                 'label'=>'Modifier l\'enseigne',
                 'attr'=>[
-                    'class'=>'btn btn-theme'
-                    
+                    'class'=>'btn btn-theme'                    
                 ]
-            ])        ;
+            ])
+            
+            ;    
     }
 
     public function getParent(){
