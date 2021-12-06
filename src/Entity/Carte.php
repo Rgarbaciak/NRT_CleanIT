@@ -39,7 +39,7 @@ class Carte
      * @ORM\ManyToOne(targetEntity=Enseigne::class, inversedBy="cartes")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $enseinge;
+    private $enseigne;
 
     /**
      * @ORM\ManyToOne(targetEntity=Magasin::class, inversedBy="cartes")
@@ -98,14 +98,14 @@ class Carte
         return $this;
     }
 
-    public function getEnseinge(): ?Enseigne
+    public function getEnseigne(): ?Enseigne
     {
-        return $this->enseinge;
+        return $this->enseigne;
     }
 
-    public function setEnseinge(?Enseigne $enseinge): self
+    public function setEnseigne(?Enseigne $enseigne): self
     {
-        $this->enseinge = $enseinge;
+        $this->enseigne = $enseigne;
 
         return $this;
     }

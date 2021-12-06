@@ -52,6 +52,11 @@ class Employe
      */
     private $mail;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $pays;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +142,18 @@ class Employe
     public function setMail(string $mail): self
     {
         $this->mail = $mail;
+
+        return $this;
+    }
+
+    public function getPays(): ?string
+    {
+        return $this->pays;
+    }
+
+    public function setPays(?string $pays): self
+    {
+        $this->pays = $pays;
 
         return $this;
     }
