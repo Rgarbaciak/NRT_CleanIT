@@ -58,7 +58,7 @@ class EnseigneRepository extends ServiceEntityRepository
        $stmt  -> bindValue(2,$id);
        
        $resultSet=$stmt->executeQuery();;
-       echo($query);
+       
  
 
        
