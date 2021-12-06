@@ -16,29 +16,34 @@
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}        
         <h4>Enseignes : Liste</h4>
-         {{ render(controller( 'App\\Controller\\SearchController::searchEnseigne' )) }}
-        <a class="btn btn-theme" href="{{path('enseigneLister')}}">Réinitialliser</a>
-        </br>
-        <table class="table table-bordered table-striped table-condensed">
-        <tr>
+        
+        <input class='form-control' id='search_group' name="search_group" onkeyup="search_group2()" placeholder="Entrez le nom d'une enseigne">        
+                <table id='table_group' class="table table-bordered table-striped table-condensed">
+                <thead>
+                        <tr>
                       <th>Nom de l'enseigne</th>
                       <th>Ville du siège social</th>
                       <th class="numeric">Pays du siège social</th>
                       <th >Siret de l'enseigne</th>
                      
                     </tr>
+                    </thead>
+                    <tbody>
         {% for e in pEnseigne %}
         <tr>
-            <th><a href="{{ path('enseigneConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a> </th>
-            <th>{{ e.ville }} </th>
-            <th>{{ e.pays }} </th>
-            <th>{{ e.siret }} </th>
+            <td><a href="{{ path('enseigneConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a> </td>
+            <td>{{ e.ville }} </td>
+            <td>{{ e.pays }} </td>
+            <td>{{ e.siret }} </td>
+        </tr>
         {% endfor %}
+        </tbody>
         {% else %}
          <tr>
         <td>Aucune enseigne n'a été trouvée.</td>
         </tr>
     {% endif %}
+    
 </table>
 	</div>
 </div>

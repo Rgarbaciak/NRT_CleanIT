@@ -69,6 +69,16 @@
 
           {% if is_granted('ROLE_COMMERCIAL') %}
           <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-university" aria-hidden="true"></i>
+              <span>Type d'enseigne</span>
+              </a>
+            <ul class="sub">
+              <li><a href="{{ path('typeEnseigneLister')}}">Liste des types d'enseignes</a></li>
+              <li><a href="{{ path('typeEnseigneAjouter')}}">Ajouter un type d'enseignes</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
             <a href="">
               <i class="fa fa-cart-arrow-down"></i>
               <span>Magasin</span>
@@ -87,17 +97,68 @@
               <span>Personnel</span>
               </a>
             <ul class="sub">
-              {% if is_granted('ROLE_COMMERCIAL') %}
-                <li><a href="{{ path('responsableLister')}}">Liste des reponsables</a></li>
-                <li><a href="{{ path('responsableAjouter')}}">Ajouter un responsable</a></li>
-                <li><a href="{{ path('interlocuteurLister')}}">Liste des interlocuteur</a></li>
-                <li><a href="{{ path('interlocuteurAjouter')}}">Ajouter un interlocuteur</a></li>
-                <li><a href="{{ path('employeLister')}}">Liste des employe</a></li>
-                <li><a href="{{ path('employeAjouter')}}">Ajouter un employe</a></li>
-              {% endif %}
-              {% if is_granted('ROLE_HOTLINER') %}
-                <li><a href="{{ path('clientLister')}}">Liste des clients</a></li>
-              {% endif %}
+              <li><a href="{{ path('clientLister')}}">Liste des clients</a></li>
+              <li><a href="{{ path('employeLister')}}">Liste des employe</a></li>
+              <li><a href="{{ path('employeAjouter')}}">Ajouter un employe</a></li>
+            </ul>
+          </li>
+
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-commenting-o" aria-hidden="true"></i>
+              <span>Interlocuteur</span>
+              </a>
+            <ul class="sub">
+              <li><a href="{{ path('interlocuteurLister')}}">Liste des interlocuteur</a></li>
+              <li><a href="{{ path('interlocuteurAjouter')}}">Ajouter un interlocuteur</a></li>
+            </ul>
+          </li>
+
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-address-book" aria-hidden="true"></i>
+              <span>Responsable</span>
+              </a>
+            <ul class="sub">
+              <li><a href="{{ path('responsableLister')}}">Liste des reponsables</a></li>
+              <li><a href="{{ path('responsableAjouter')}}">Ajouter un responsable</a></li>
+            </ul>
+          </li>
+
+
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+              <span>Page autres</span>
+              </a>
+            <ul class="sub">
+              <li><a href="faq.html">FAQ</a></li>
+              <li><a href="404.html">404 Error</a></li>
+              <li><a href="500.html">500 Error</a></li>
+            </ul>
+          </li>
+          <!---
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-tasks"></i>
+              <span>Forms</span>
+              </a>
+            <ul class="sub">
+              <li><a href="form_component.html">Form Components</a></li>
+              <li><a href="advanced_form_components.html">Advanced Components</a></li>
+              <li><a href="form_validation.html">Form Validation</a></li>
+              <li><a href="contactform.html">Contact Form</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-th"></i>
+              <span>Data Tables</span>
+              </a>
+            <ul class="sub">
+              <li><a href="basic_table.html">Basic Table</a></li>
+              <li><a href="responsive_table.html">Responsive Table</a></li>
+              <li><a href="advanced_table.html">Advanced Table</a></li>
             </ul>
           </li>
   
