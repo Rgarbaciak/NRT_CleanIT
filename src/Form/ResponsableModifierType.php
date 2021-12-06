@@ -28,6 +28,12 @@ class ResponsableModifierType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
+            ->add('pays',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
             ->add('tel',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',

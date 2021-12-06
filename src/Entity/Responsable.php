@@ -43,6 +43,11 @@ class Responsable
      */
     private $enseigne;
 
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $pays;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +109,18 @@ class Responsable
     public function setEnseigne(?Enseigne $enseigne): self
     {
         $this->enseigne = $enseigne;
+
+        return $this;
+    }
+
+    public function getPays(): ?string
+    {
+        return $this->pays;
+    }
+
+    public function setPays(?string $pays): self
+    {
+        $this->pays = $pays;
 
         return $this;
     }

@@ -15,16 +15,33 @@
     <p><span class="message-p message" style="font-size:15px">Nom :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.nom}}</p>
     <p><span class="message-p message" style="font-size:15px">Prenom :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.prenom}}</p>
     <p><span class="message-p message" style="font-size:15px">Téléphone :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.tel}}</p>
-    <p><span class="message-p message" style="font-size:15px">Adresse Mail :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.mail}}</p>
-    <p><span class="message-p message" style="font-size:15px">Magasin :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.libelle}}</p>
+    
+    <p><span class="message-p message" style="font-size:15px">Magasin :</span>&nbsp;&nbsp;&nbsp;<a href="{{ path('magasinConsulter', { 'id': interlocuteur.magasin.id }) }}">{{interlocuteur.magasin.libelle}}<a></p>
         <br>
     <br>
     <br>
    <th><a type="button" class ="btn btn-warning" href="{{ path('interlocuteurModifier', { 'id': interlocuteur.id }) }}">Modifier l'interlocuteur</a> 
     <div class="pull-right">
     <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer l'enseigne</button> </th> <br>
-      </div>
-</div>
+     </div>
+    
+     </div>
+    </div>
+    <div class="row">
+  <div class="col-lg-4 main-chart">   
+                <div class ="showback">
+                   
+	<h4> <i class="fa fa-angle-right"></i> Magasin : consultation </h4>
+
+    <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.id}}</p>
+    <p><span class="message-p message" style="font-size:15px">Nom :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.libelle}}</p>
+    <p><span class="message-p message" style="font-size:15px">Adresse :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.rue}}</p>
+    <p><span class="message-p message" style="font-size:15px">Code Postal :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.copos}}</p>
+    <p><span class="message-p message" style="font-size:15px">Ville :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.ville}}</p>
+    <p><span class="message-p message" style="font-size:15px">Pays :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.pays}}</p>
+    </div>
+    </div>
+    </div>
 </section>
 </section>
     {% include('./component/script.html.twig') %}

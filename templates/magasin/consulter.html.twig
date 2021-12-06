@@ -59,14 +59,19 @@
 <tr>
 <th> Nom</th>
 <th> Prénom</th>
+<th> Mail </th>
 </tr>
 </thead>
 <tbody>
 
 {% for i in magasin.interlocuteurs %}
+<tr>
 <td> {{i.Nom}} </td>
 <td> {{i.Prenom}} </td>
+<td> {{i.mail}} </td>
+</tr>
 {% endfor %}
+
 </trbody>
 </table>
 </div>
