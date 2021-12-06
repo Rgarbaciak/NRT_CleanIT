@@ -15,9 +15,10 @@
                 <p><span class="message-p message" style="font-size:15px">Nom de l'enseigne: </span>&nbsp;&nbsp;&nbsp;  {{enseigne.libelle}}</p>
                 <p><span class="message-p message" style="font-size:15px">Pays du siège social: </span>&nbsp;&nbsp;&nbsp; {{enseigne.pays}}</p>
                 <p><span class="message-p message" style="font-size:15px">Ville du siège social: </span>&nbsp;&nbsp;&nbsp;  {{enseigne.ville}}</p>
-                <p><span class="message-p message" style="font-size:15px">Rue du siège social: </span>&nbsp;&nbsp;&nbsp;  {{enseigne.rue}}</p>
+                <p><span class="message-p message" style="font-size:15px">Adresse du siège social: </span>&nbsp;&nbsp;&nbsp;  {{enseigne.rue}}</p>
                 <p><span class="message-p message" style="font-size:15px">Code postal du siège social: </span>&nbsp;&nbsp;&nbsp; {{enseigne.copos}}</p>
                 <p><span class="message-p message" style="font-size:15px">Type enseigne: </span>&nbsp;&nbsp;&nbsp; {{enseigne.typeEnseigne.libelle}}</p>
+
                 <th><a type="button" class ="btn btn-warning" href="{{ path('enseigneModifier', { 'id': enseigne.id }) }}">Modifier l'enseigne</a> </th> 
                     <div class="pull-right"  >
                         <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer l'enseigne</button> </th> <br>
@@ -128,4 +129,6 @@
     </div>
   </div>
 </div>
+
+
 </html>

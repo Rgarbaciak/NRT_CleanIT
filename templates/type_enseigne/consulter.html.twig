@@ -9,16 +9,48 @@
        <section id="main-content">
       <section class="wrapper">
         <div class="row">
-          <div class="col-lg-9 main-chart">   
-	<h4>Enseigne : consultation</h4>
-    <p>Identifiant : {{typeEnseigne.id}}<p>
-    <p>Libelle : {{typeEnseigne.libelle}}</p>
+          <div class="col-lg-5 main-chart">   
+                <div class ="showback">   
+		<h4> <i class="fa fa-angle-right"></i> Type d'Enseigne : Consultation </h4>
 
-    <th><a href="{{path('typeEnseigneModifier', { 'id': typeEnseigne.id }) }}">Modifier le type d'enseigne</a> </th> <br>
-    <th><a href="{{path('typeEnseigneSupprimer', { 'id': typeEnseigne.id }) }}">Supprimer le type d'enseigne</a> </th>
+    <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{typeEnseigne.id}}<p>
+    <p><span class="message-p message" style="font-size:15px">Libelle :</span>&nbsp;&nbsp;&nbsp;{{typeEnseigne.libelle}}</p>
+
+    <th><a type="button" class ="btn btn-warning" href="{{path('typeEnseigneModifier', { 'id': typeEnseigne.id }) }}">Modifier le type d'enseigne</a> </th>
+    <div class="pull-right">
+    <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer le client</button> </th><br>
     </div>
+    
+     </div>
+    </div>
+
 </section>
 </section>
     {% include('./component/script.html.twig') %}
     </body>
+
+     <!--Modal-->
+    <div class="modal fade" id="validationSuppresion" tabindex="-1" role="dialog" aria-labelledby="validationSuppresionLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûre de vouloir supprimer ce type d'enseigne ?</h5>
+      </div>
+      <div class="modal-body">
+        <p> Vous allez supprimer le type d'enseigne appelé : {{typeEnseigne.libelle}} </p>
+        <div class="alert alert-warning">
+        <b> Attention ! <b/> <br>
+        <p> Faire cette suppression engendra la suppression de toutes les enseignes comportant ce type d'enseigne mais aussi la suppression des magasins appartenant à cette enseigne ainsi que la suppression des interlocuteurs en charge des magasins et la suppression des responsables des enseignes ! </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
+        <a type="button" class="btn btn-primary" href="{{ path('typeEnseigneSupprimer', { 'id': typeEnseigne.id }) }}">Supprimer</a>
+      </div>
+    </div>
+  </div>
+</div>
 </html>

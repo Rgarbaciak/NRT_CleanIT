@@ -5,28 +5,57 @@
     </head>
     <body>
      {% include('./component/menu.html.twig') %}  
-        <section id="main-content">
+       <section id="main-content">
       <section class="wrapper">
         <div class="row">
-          <div class="col-lg-9 main-chart">     
-	<h4>Page consultation d'un client</h4>
-    <p>Id du client:  {{client.id}}<p>
-    <p>Nom du clien:  {{client.nom}}</p>
-    <p>Prenom du client:  {{client.prenom}}</p>
-    <p>Téléphone: {{client.tel}}</p>
-    <p>Mail:  {{client.mail}}</p>
-    <p>Copos:  {{client.copos}}</p>
-    <p>Rue:  {{client.rue}}</p>
-    <p>Ville:  {{client.ville}}</p>
+          <div class="col-lg-4 main-chart">   
+                <div class ="showback">    
+		<h4> <i class="fa fa-angle-right"></i> Client : Consultation </h4>
+    <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{client.id}}<p>
+    <p><span class="message-p message" style="font-size:15px">Nom :</span>&nbsp;&nbsp;&nbsp;{{client.nom}}</p>
+    <p><span class="message-p message" style="font-size:15px">Prenom :</span>&nbsp;&nbsp;&nbsp;{{client.prenom}}</p>
+    <p><span class="message-p message" style="font-size:15px">Téléphone :</span>&nbsp;&nbsp;&nbsp; {{client.tel}}</p>
+    <p><span class="message-p message" style="font-size:15px">Adresse Mail :</span>&nbsp;&nbsp;&nbsp;{{client.mail}}</p>
+    <p><span class="message-p message" style="font-size:15px">Code Postal :</span>&nbsp;&nbsp;&nbsp;{{client.copos}}</p>
+    <p><span class="message-p message" style="font-size:15px">Adresse :</span>&nbsp;&nbsp;&nbsp;{{client.rue}}</p>
+    <p><span class="message-p message" style="font-size:15px">Ville :</span>&nbsp;&nbsp;&nbsp;{{client.ville}}</p>
     <br>
     <br>
     <br>
-    <th><a href="{{ path('clientModifier', { 'id': client.id }) }}">Modifier le client</a> </th> <br>
-    <th><a href="{{ path('clientSupprimer', { 'id': client.id }) }}">Supprimer le client</a> </th>
+    <th><a type="button" class ="btn btn-warning" href="{{ path('clientModifier', { 'id': client.id }) }}">Modifier le client</a> </th>
+    <div class="pull-right" >
+    <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer le client</button> </th><br>
     </div>
+
+</div>
 </div>
 </section>
 </section>
     {% include('./component/script.html.twig') %}
     </body>
+
+     <!--Modal-->
+    <div class="modal fade" id="validationSuppresion" tabindex="-1" role="dialog" aria-labelledby="validationSuppresionLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûre de vouloir supprimer ce client ?</h5>
+      </div>
+      <div class="modal-body">
+        <p> Vous allez supprimer le client appelé : {{client.nom}} {{client.prenom}}</p>
+        <div class="alert alert-warning">
+        <b> Attention ! <b/> <br>
+        <p> Faire cette suppression engendra la suppression de toutes les fidélités à laquelle le client est souscris </p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
+        <a type="button" class="btn btn-primary" href="{{ path('clientSupprimer', { 'id': client.id }) }}">Supprimer</a>
+      </div>
+    </div>
+  </div>
+</div>
 </html>
