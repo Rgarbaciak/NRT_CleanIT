@@ -112,9 +112,7 @@ interlocuteurSupprimer:
   controller: App\Controller\InterlocuteurController::supprimerInterlocuteur
 
 #client
-clientAjouter:
-  path: /client/ajouter
-  controller: App\Controller\ClientController::ajouterClient
+
 
 clientConsulter:
   path: /client/consulter/{id}
