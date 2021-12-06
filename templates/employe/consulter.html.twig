@@ -8,7 +8,8 @@
        <section id="main-content">
       <section class="wrapper">
         <div class="row">
-          <div class="col-lg-4 main-chart">   
+              
+	 <div class="col-lg-4 main-chart">   
                 <div class ="showback">    
 		<h4> <i class="fa fa-angle-right"></i> Employé : Consultation </h4>     
     <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{employe.id}}<p>
@@ -16,12 +17,10 @@
     <p><span class="message-p message" style="font-size:15px">Prenom :</span>&nbsp;&nbsp;&nbsp;{{employe.prenom}}</p>
     <p><span class="message-p message" style="font-size:15px">Téléphone :</span>&nbsp;&nbsp;&nbsp;{{employe.tel}}</p>
     <p><span class="message-p message" style="font-size:15px">Adresse Mail :</span>&nbsp;&nbsp;&nbsp;{{employe.mail}}</p>
-    <p><span class="message-p message" style="font-size:15px">Ville :</span>&nbsp;&nbsp;&nbsp;  {{employe.ville}}</p>
-    <p><span class="message-p message" style="font-size:15px">Adresse :</span>&nbsp;&nbsp;&nbsp; {{employe.rue}}</p>
-    <p><span class="message-p message" style="font-size:15px">Code Postal :</span>&nbsp;&nbsp;&nbsp; {{employe.copos}}</p>
-    <br>
-    <br>
-    <br>
+    <p><span class="message-p message" style="font-size:15px">Adresse : </span>&nbsp;&nbsp;&nbsp;  {{employe.rue}}</p>
+                <p><span class="message-p message" style="font-size:15px">Ville : </span>&nbsp;&nbsp;&nbsp;  {{employe.ville}}</p>
+                <p><span class="message-p message" style="font-size:15px">Code postal : </span>&nbsp;&nbsp;&nbsp; {{employe.copos}}</p>
+                <p><span class="message-p message" style="font-size:15px">Pays : </span>&nbsp;&nbsp;&nbsp; {{employe.pays}}</p>
     <th><a type="button" class ="btn btn-warning" href="{{ path('employeModifier', { 'id': employe.id }) }}">Modifier l'employe</a> 
     <div class="pull-right" >
     <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer le magasin</button> </th><br>

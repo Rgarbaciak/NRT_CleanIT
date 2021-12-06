@@ -8,6 +8,18 @@
        <section id="main-content">
       <section class="wrapper">
         <div class="row">
+<<<<<<< HEAD
+          <div class="col-lg-9 main-chart">     
+	<h4>Client : Consultation</h4>
+    <p>Id du client:  {{client.id}}<p>
+    <p>Nom du clien:  {{client.nom}}</p>
+    <p>Prenom du client:  {{client.prenom}}</p>
+    <p>Téléphone: {{client.tel}}</p>
+    <p>Mail:  {{client.mail}}</p>
+    <p>Copos:  {{client.copos}}</p>
+    <p>Rue:  {{client.rue}}</p>
+    <p>Ville:  {{client.ville}}</p>
+=======
           <div class="col-lg-4 main-chart">   
                 <div class ="showback">    
 		<h4> <i class="fa fa-angle-right"></i> Client : Consultation </h4>
@@ -16,14 +28,19 @@
     <p><span class="message-p message" style="font-size:15px">Prenom :</span>&nbsp;&nbsp;&nbsp;{{client.prenom}}</p>
     <p><span class="message-p message" style="font-size:15px">Téléphone :</span>&nbsp;&nbsp;&nbsp; {{client.tel}}</p>
     <p><span class="message-p message" style="font-size:15px">Adresse Mail :</span>&nbsp;&nbsp;&nbsp;{{client.mail}}</p>
-    
+
     {% for m in client.cartes  %}
     <p><span class="message-p message" style="font-size:15px">Numéro carte :</span>&nbsp;&nbsp;&nbsp;{{m.numero}}</p>
     {% endfor %}
 
-    <p><span class="message-p message" style="font-size:15px">Code Postal :</span>&nbsp;&nbsp;&nbsp;{{client.copos}}</p>
-    <p><span class="message-p message" style="font-size:15px">Adresse :</span>&nbsp;&nbsp;&nbsp;{{client.rue}}</p>
-    <p><span class="message-p message" style="font-size:15px">Ville :</span>&nbsp;&nbsp;&nbsp;{{client.ville}}</p>
+    
+   
+    <p><span class="message-p message" style="font-size:15px">Adresse : </span>&nbsp;&nbsp;&nbsp;  {{client.rue}}</p>
+                <p><span class="message-p message" style="font-size:15px">Ville : </span>&nbsp;&nbsp;&nbsp;  {{client.ville}}</p>
+                <p><span class="message-p message" style="font-size:15px">Code postal : </span>&nbsp;&nbsp;&nbsp; {{client.copos}}</p>
+                <p><span class="message-p message" style="font-size:15px">Pays : </span>&nbsp;&nbsp;&nbsp; {{client.pays}}</p>>
+    
+>>>>>>> 7cbd727a5c42b8d69fc9e673f45684383970fca6
     <br>
     <br>
     <br>
