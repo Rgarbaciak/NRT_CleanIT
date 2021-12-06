@@ -18,13 +18,8 @@
            
         <h4>Clients : Liste</h4>
 
-              {{ render(controller(
-        'App\\Controller\\SearchController::searchClient'
- )) }}
- <br>
-        <a class="btn btn-theme" href="{{path('clientLister')}}">Réinitialliser</a>
-        </br>
-        <table class="table table-bordered table-striped table-condensed">
+                          <input class='form-control' id='search_group' name="search_group" onkeyup="search_group2()" placeholder="Entrez le nom d'un employé">        
+                <table id='table_group' class="table table-bordered table-striped table-condensed">
         <tr>        <th>Nom</th>
                       <th>Prénom</th>
                       <th>Téléphone</th>
@@ -33,10 +28,10 @@
                     </tr>
         {% for e in pClient %}
         <tr>
-            <th><a href="{{ path('clientConsulter', { 'id': e.id }) }}">{{ e.nom }}</a> </th>
-            <th>{{ e.prenom }}</th>
-            <th>{{ e.tel }}</th>
-            <th>{{ e.mail }}</th>
+            <td><a href="{{ path('clientConsulter', { 'id': e.id }) }}">{{ e.nom }}</a> </td>
+            <td>{{ e.prenom }}</td>
+            <td>{{ e.tel }}</td>
+            <td>{{ e.mail }}</td>
         {% endfor %}
         {% else %}
          <tr>

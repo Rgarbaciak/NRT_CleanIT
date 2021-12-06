@@ -17,13 +17,8 @@
             
         <h4>Responsables : liste</h4></br>
 
-        {{ render(controller(
-        'App\\Controller\\SearchController::searchResponsable'
- )) }}
- <br>
-        <a class="btn btn-theme" href="{{path('responsableLister')}}">Réinitialliser</a>
-
-        <table class="table table-bordered table-striped table-condensed">
+                    <input class='form-control' id='search_group' name="search_group" onkeyup="search_group2()" placeholder="Entrez le nom d'un employé">        
+                <table id='table_group' class="table table-bordered table-striped table-condensed">
         <tr>
                       <th>Nom du responsable</th>
                       <th>Prénom du responsable</th>
