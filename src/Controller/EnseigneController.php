@@ -33,7 +33,9 @@ class EnseigneController extends AbstractController
                 $entityManager->persist($enseigne);
                 $entityManager->flush();
     
-            return $this->render('enseigne/consulter.html.twig', ['enseigne' => $enseigne,]);
+            return $this->render('enseigne/consulter.html.twig', ['enseigne' => $enseigne,
+            'pMagasin' => null,
+        ]);
         }
         else
             {
@@ -84,7 +86,10 @@ class EnseigneController extends AbstractController
                      $entityManager = $this->getDoctrine()->getManager();
                      $entityManager->persist($enseigne);
                      $entityManager->flush();
-                     return $this->render('enseigne/consulter.html.twig', ['enseigne' => $enseigne,]);
+                     return $this->render('enseigne/consulter.html.twig', [
+                         'enseigne' => $enseigne,
+                         'pMagasin' => null,
+                    ]);
                }
                else{
                     return $this->render('enseigne/modifier.html.twig', array('form' => $form->createView(),));
