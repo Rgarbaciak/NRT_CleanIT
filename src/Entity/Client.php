@@ -64,6 +64,11 @@ class Client
      */
     private $pays;
 
+    /**
+     * @ORM\OneToOne(targetEntity=Compte::class, cascade={"persist", "remove"})
+     */
+    private $compte;
+
     public function __construct()
     {
         $this->cartes = new ArrayCollection();
@@ -196,6 +201,18 @@ class Client
     public function setPays(?string $pays): self
     {
         $this->pays = $pays;
+
+        return $this;
+    }
+
+    public function getCompte(): ?Compte
+    {
+        return $this->compte;
+    }
+
+    public function setCompte(?Compte $compte): self
+    {
+        $this->compte = $compte;
 
         return $this;
     }
