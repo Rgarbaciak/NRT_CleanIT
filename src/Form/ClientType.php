@@ -27,6 +27,13 @@ class ClientType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
+            ->add('pays',TextType::class,[
+                'data' =>'France' ,
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
             ->add('copos',TextType::class,[
                 'label'=>'Code Postal',
                 'attr' =>[
@@ -40,6 +47,7 @@ class ClientType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
+
             ->add('rue',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',

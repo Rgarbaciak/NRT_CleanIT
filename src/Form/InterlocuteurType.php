@@ -27,10 +27,11 @@ class InterlocuteurType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
+            
             ->add('tel',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
-                    'maxlength' => 5
+                    'maxlength' => 10
                 ]
             ])
             ->add('mail',TextType::class,[

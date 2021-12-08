@@ -65,7 +65,11 @@ class Client
     private $pays;
 
     /**
+<<<<<<< HEAD
      * @ORM\OneToOne(targetEntity=Compte::class, cascade={"persist", "remove"})
+=======
+     * @ORM\ManyToOne(targetEntity=Compte::class, inversedBy="clients")
+>>>>>>> b4f490b8de5ad5445552e3f88d2795f52e1cf218
      */
     private $compte;
 
@@ -205,12 +209,12 @@ class Client
         return $this;
     }
 
-    public function getCompte(): ?Compte
+    public function getCompte(): ?compte
     {
         return $this->compte;
     }
 
-    public function setCompte(?Compte $compte): self
+    public function setCompte(?compte $compte): self
     {
         $this->compte = $compte;
 

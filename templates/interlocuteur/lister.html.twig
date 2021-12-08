@@ -15,27 +15,24 @@
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
            
-        <h4>Liste des ensegines</h4>
-                 {{ render(controller(
-        'App\\Controller\\SearchController::searchInterlocuteur'
- )) }}
- <br>
-        <a class="btn btn-theme" href="{{path('interlocuteurLister')}}">Réinitialliser</a>
-        </br>
-        <table class="table table-bordered table-striped table-condensed">
+        <h4>Enseigne : Liste</h4>
+                 
+
+              <input class='form-control' id='search_group' name="search_group" onkeyup="search_group2()" placeholder="Entrez le nom d'un employé">        
+                <table id='table_group' class="table table-bordered table-striped table-condensed">
         <tr>
                       <th>Nom</th>
                       <th>Prénom</th>
-                      <th>Téléphone</th>
+                      <td>Téléphone</td>
                       <th>Mail</th>
                      
                     </tr>
         {% for e in pInterlocuteur %}
         <tr>
-            <th><a href="{{ path('interlocuteurConsulter', { 'id': e.id }) }}">{{ e.nom }}</a> </th>
-            <th>{{ e.prenom }}</th>
-            <th>{{ e.tel }}</th>
-            <th>{{ e.mail }}</th>
+            <td><a href="{{ path('interlocuteurConsulter', { 'id': e.id }) }}">{{ e.nom }}</a> </td>
+            <td>{{ e.prenom }}</td>
+            <td>{{ e.tel }}</td>
+            <td>{{ e.mail }}</td>
         {% endfor %}
         {% else %}
          <tr>
