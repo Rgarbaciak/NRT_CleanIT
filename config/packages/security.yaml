@@ -40,12 +40,13 @@ security:
     #- { path: ^/profil, roles: ROLE_USER }
          
     - { path: ^/client, roles: ROLE_HOTLINER }  
-    - { path: ^/magasin, roles: ROLE_HOTLINER }      
+    #- { path: ^/fidelite, roles: ROLE_HOTLINER }  
+
+      
     
     - { path: ^/enseigne, roles: ROLE_COMMERCIAL }
     - { path: ^/type_enseigne, roles: ROLE_COMMERCIAL }
     - { path: ^/magasin, roles: ROLE_COMMERCIAL }
-    - { path: ^/employe, roles: ROLE_COMMERCIAL }
     - { path: ^/interlocuteur, roles: ROLE_COMMERCIAL }
     - { path: ^/responsable, roles: ROLE_COMMERCIAL }
 
