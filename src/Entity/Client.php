@@ -64,6 +64,11 @@ class Client
      */
     private $pays;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Compte::class, inversedBy="clients")
+     */
+    private $compte;
+
     public function __construct()
     {
         $this->cartes = new ArrayCollection();
@@ -196,6 +201,18 @@ class Client
     public function setPays(?string $pays): self
     {
         $this->pays = $pays;
+
+        return $this;
+    }
+
+    public function getCompte(): ?compte
+    {
+        return $this->compte;
+    }
+
+    public function setCompte(?compte $compte): self
+    {
+        $this->compte = $compte;
 
         return $this;
     }

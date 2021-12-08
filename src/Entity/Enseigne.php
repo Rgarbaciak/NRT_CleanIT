@@ -70,7 +70,7 @@ class Enseigne
     private $cartes;
 
     /**
-     * @ORM\Column(type="integer", nullable=true, length=9)
+     * @ORM\Column(type="string", length=50, nullable=true)
      */
     private $SIRET;
 
@@ -260,12 +260,12 @@ class Enseigne
         return $this;
     }
 
-    public function getSIRET(): ?int
+    public function getSIRET(): ?string
     {
         return $this->SIRET;
     }
 
-    public function setSIRET(?int $SIRET): self
+    public function setSIRET(?string $SIRET): self
     {
         $this->SIRET = $SIRET;
 
