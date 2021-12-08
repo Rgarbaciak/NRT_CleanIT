@@ -92,23 +92,22 @@
           </li>
           {% endif %}
 
-          {% if is_granted('ROLE_COMMERCIAL') %}
+          {% if is_granted('ROLE_ADMIN') %}
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-users"></i>
               <span>Personnel</span>
               </a>
             <ul class="sub">
-            {% endif %}
-              {% if is_granted('ROLE_ADMIN') %}
               <li><a href="{{ path('clientLister')}}">Liste des clients</a></li>
-              {% endif %}
-              {% if is_granted('ROLE_COMMERCIAL') %}
               <li><a href="{{ path('employeLister')}}">Liste des employe</a></li>
               <li><a href="{{ path('employeAjouter')}}">Ajouter un employe</a></li>
-            </ul>
+            </ul>                      
           </li>
+          {% endif %}
           
+          {% if is_granted('ROLE_COMMERCIAL') %}
+
           <li class="sub-menu">
             <a href="javascript:;">
               <i class="fa fa-commenting-o" aria-hidden="true"></i>
@@ -130,5 +129,6 @@
               <li><a href="{{ path('responsableAjouter')}}">Ajouter un responsable</a></li>
             </ul>
           </li>
-           {% endif %}
+
+          {% endif %}
 </aside>
