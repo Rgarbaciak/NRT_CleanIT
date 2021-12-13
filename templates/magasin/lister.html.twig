@@ -20,22 +20,23 @@
                      <input class='form-control' id='search_group' name="search_group" onkeyup="search_bar()" placeholder="Entrez une information d'un magasin">        
                 <table id='table_group' class="table table-bordered table-striped table-condensed">
         <tr>
-                      <th>Nom du magasin</th>
+                      <th>Nom</th>
                       <th>Nom de l'enseigne</th>
-                      <th >Pays du magasins</th>
-                      <th >Ville du magasins</th>
-                      <th >Rue du magasins</th>
-                      <th >Code postal du magasins</th>
+                      <th >Adresse</th>
+                      <th >Code postal</th>
+                      <th >Ville</th>
+                      <th >Pays</th>
+
                      
                     </tr>
         {% for e in pMagasin %}
         <tr>
             <td><a href="{{ path('magasinConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a></td>
              <td>{{ e.enseigne.libelle }}</td>
-             <td>{{ e.pays }}</td>
-             <td>{{ e.ville }}</td>
               <td>{{ e.rue }}</td>
              <td>{{ e.copos }}</td>
+             <td>{{ e.ville }}</td>
+             <td>{{ e.pays }}</td>
              
     
         {% endfor %}
