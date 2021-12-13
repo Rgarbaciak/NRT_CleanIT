@@ -27,8 +27,7 @@ class ClientType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
-            ->add('pays',TextType::class,[
-                'data' =>'France' ,
+            ->add('adresse',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
@@ -47,8 +46,8 @@ class ClientType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
-
-            ->add('rue',TextType::class,[
+            ->add('pays',TextType::class,[
+                'data' =>'France' ,
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50

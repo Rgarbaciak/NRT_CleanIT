@@ -60,10 +60,16 @@ class EnseigneController extends AbstractController
     }
 
     public function listerEnseigne(){
+        $role = $this -> getUser() -> getRoles()[0];
+        if ($role =='ROLE_COMMERCIAL'){
         $repository = $this->getDoctrine()->getRepository(Enseigne::class);
         $enseigne = $repository->findAll();
         return $this->render('enseigne/lister.html.twig', [
-            'pEnseigne' => $enseigne,]);	
+            'pEnseigne' => $enseigne,]);
+        }
+        else{
+            return $this->redirecttoRoute('home');
+        }	
     }
 
     public function modifierEnseigne($id, Request $request){
