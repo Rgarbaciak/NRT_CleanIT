@@ -158,3 +158,8 @@ roleAjouter:
 roleLister:
   path: /role/lister
   controller: App\Controller\RoleController::listerRole
+
+#register
+register:
+  path: /register
+  controller: App\Controller\RegistrationController::register
