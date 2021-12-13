@@ -18,9 +18,21 @@
     <p><span class="message-p message" style="font-size:15px">Téléphone :</span>&nbsp;&nbsp;&nbsp;{{employe.tel}}</p>
     <p><span class="message-p message" style="font-size:15px">Adresse Mail :</span>&nbsp;&nbsp;&nbsp;{{employe.mail}}</p>
     <p><span class="message-p message" style="font-size:15px">Adresse : </span>&nbsp;&nbsp;&nbsp;  {{employe.rue}}</p>
-                <p><span class="message-p message" style="font-size:15px">Ville : </span>&nbsp;&nbsp;&nbsp;  {{employe.ville}}</p>
-                <p><span class="message-p message" style="font-size:15px">Code postal : </span>&nbsp;&nbsp;&nbsp; {{employe.copos}}</p>
-                <p><span class="message-p message" style="font-size:15px">Pays : </span>&nbsp;&nbsp;&nbsp; {{employe.pays}}</p>
+    <p><span class="message-p message" style="font-size:15px">Ville : </span>&nbsp;&nbsp;&nbsp;  {{employe.ville}}</p>
+    <p><span class="message-p message" style="font-size:15px">Code postal : </span>&nbsp;&nbsp;&nbsp; {{employe.copos}}</p>
+    <p><span class="message-p message" style="font-size:15px">Pays : </span>&nbsp;&nbsp;&nbsp; {{employe.pays}}</p>
+                {% for r in employe.user.roles %}
+                {% if r =='ROLE_HOTLINER' %}
+                 <p><span class="message-p message" style="font-size:15px">Role : </span>&nbsp;&nbsp;&nbsp; Hotliner</p>
+                 {% endif %}
+                {% if r =='ROLE_ADMIN' %}
+                 <p><span class="message-p message" style="font-size:15px">Role : </span>&nbsp;&nbsp;&nbsp; Admin</p>
+                 {% endif %}
+                  {% if r =='ROLE_COMMERCIAL' %}
+                 <p><span class="message-p message" style="font-size:15px">Role : </span>&nbsp;&nbsp;&nbsp; Commercial</p>
+                 {% endif %}
+                 {% endfor %}
+     <p><span class="message-p message" style="font-size:15px">Mot de passe : </span>&nbsp;&nbsp;&nbsp; <a data-toggle="modal" data-target="#validationMotDePasse" >Réinitialiser le mot de passe</a></p>
     <th><a type="button" class ="btn btn-warning" href="{{ path('employeModifier', { 'id': employe.id }) }}">Modifier l'employe</a> 
     <div class="pull-right" >
     <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer le magasin</button> </th><br>
@@ -31,7 +43,7 @@
     {% include('./component/script.html.twig') %}
     </body>
         <!--Modal-->
-    <div class="modal fade" id="validationSuppresion" tabindex="-1" role="dialog" aria-labelledby="validationSuppresionLabel" aria-hidden="true">
+<div class="modal fade" id="validationSuppresion" tabindex="-1" role="dialog" aria-labelledby="validationSuppresionLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -47,6 +59,27 @@
       <div class="modal-footer">
         <a type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
         <a type="button" class="btn btn-primary" href="{{ path('employeSupprimer', { 'id': employe.id }) }}">Supprimer</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="validationMotDePasse" tabindex="-1" role="dialog" aria-labelledby="validationMotDePasse" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h5 class="modal-title" id="validationMotDePasse">Êtes-vous sûre de vouloir réinitialiser le mot de passe ?</h5>
+      </div>
+      <div class="modal-body">
+        <p> Vous allez réinitialiser le mot de passe de l'employé appelé : {{employe.nom}} {{employe.prenom}}</p>
+
+      </div>
+      <div class="modal-footer">
+        <a type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</a>
+        <a type="button" class="btn btn-primary" href="{{ path('employeReinitialiser', { 'id': employe.id }) }}">Réinitialiser</a>
       </div>
     </div>
   </div>

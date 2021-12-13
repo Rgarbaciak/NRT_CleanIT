@@ -56,6 +56,7 @@ class EmployeType extends AbstractType
             ])
             ->add('ville',TextType::class,[
                 'attr' =>[
+                    
                     'class'=> 'form-control',
                     'maxlength' => 50
                 ]
@@ -69,7 +70,8 @@ class EmployeType extends AbstractType
             ->add('mail',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
-                    'maxlength' => 50
+                    'maxlength' => 50,
+                    'pattern'=> '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$'
                 ]
             ])
             ->add('roles',ChoiceType::class, [
