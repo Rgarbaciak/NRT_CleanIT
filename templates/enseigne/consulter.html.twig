@@ -12,14 +12,14 @@
      <div class="col-lg-6 main-chart">   
         <div class ="showback">    
 	        <h4> <i class="fa fa-angle-right"></i> Enseigne : consultation </h4>
-                <p><span class="message-p message" style="font-size:15px">Id de l'enseigne : </span>&nbsp;&nbsp;&nbsp;  {{enseigne.id}}<p>
-                <p><span class="message-p message" style="font-size:15px">Nom de l'enseigne : </span>&nbsp;&nbsp;&nbsp;  {{enseigne.libelle}}</p>
-                <p><span class="message-p message" style="font-size:15px">Pays du siège social : </span>&nbsp;&nbsp;&nbsp; {{enseigne.pays}}</p>
-                <p><span class="message-p message" style="font-size:15px">Ville du siège social : </span>&nbsp;&nbsp;&nbsp;  {{enseigne.ville}}</p>
+                <p><span class="message-p message" style="font-size:15px">Id : </span>&nbsp;&nbsp;&nbsp;  {{enseigne.id}}<p>
+                <p><span class="message-p message" style="font-size:15px">Nom : </span>&nbsp;&nbsp;&nbsp;  {{enseigne.libelle}}</p>
+                <p><span class="message-p message" style="font-size:15px">Siret : </span>&nbsp;&nbsp;&nbsp; {{enseigne.siret}}</p>
                 <p><span class="message-p message" style="font-size:15px">Adresse du siège social : </span>&nbsp;&nbsp;&nbsp;  {{enseigne.rue}}</p>
                 <p><span class="message-p message" style="font-size:15px">Code postal du siège social : </span>&nbsp;&nbsp;&nbsp; {{enseigne.copos}}</p>
-                <p><span class="message-p message" style="font-size:15px">Siret de l'enseigne : </span>&nbsp;&nbsp;&nbsp; {{enseigne.siret}}</p>
-                <p><span class="message-p message" style="font-size:15px">Type enseigne : </span>&nbsp;&nbsp;&nbsp; {{enseigne.typeEnseigne.libelle}}</p>
+                <p><span class="message-p message" style="font-size:15px">Ville du siège social : </span>&nbsp;&nbsp;&nbsp;  {{enseigne.ville}}</p>
+                <p><span class="message-p message" style="font-size:15px">Pays du siège social : </span>&nbsp;&nbsp;&nbsp; {{enseigne.pays}}</p>
+                <p><span class="message-p message" style="font-size:15px">Type d'enseigne : </span>&nbsp;&nbsp;&nbsp; {{enseigne.typeEnseigne.libelle}}</p>
 
                 <th><a type="button" class ="btn btn-warning" href="{{ path('enseigneModifier', { 'id': enseigne.id }) }}">Modifier l'enseigne</a> </th> 
                     <div class="pull-right"  >
@@ -68,7 +68,7 @@
                     {% if pMagasin == null %}
                         {% for m in enseigne.magasins  %}
                             <tr>
-                                <td> {{m.libelle}} </td>
+                                <td><a href="{{ path('magasinConsulter', { 'id': m.id }) }}">{{ m.libelle }}</a> </td>
                                 <td> {{m.rue}} </td>
                                 <td> {{m.copos}} </td>
                                 <td> {{m.ville}} </td>
@@ -107,13 +107,13 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûre de vouloir supprimer cette enseigne ?</h5>
+        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûr de vouloir supprimer cette enseigne ?</h5>
       </div>
       <div class="modal-body">
         <p> Vous allez supprimer l'enseigne appelée : {{enseigne.libelle}}</p>
         <div class="alert alert-warning">
         <b> Attention ! <b/> <br>
-        <p> Faire cette suppression engendra la suppression des responsables, des magasins, des interlocuteurs en rapport avec l'enseigne. </p>
+        <p> Faire cette suppression engendrera la suppression des responsables, des magasins, des interlocuteurs en rapport avec l'enseigne. </p>
         </div>
       </div>
       <div class="modal-footer">

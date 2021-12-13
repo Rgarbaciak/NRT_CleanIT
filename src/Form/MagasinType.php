@@ -23,12 +23,7 @@ class MagasinType extends AbstractType
             ]
         ])
             ->add('rue',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 50
-                ]
-            ])
-            ->add('ville',TextType::class,[
+                'label'=>'Adresse',
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
@@ -41,6 +36,13 @@ class MagasinType extends AbstractType
                     'maxlength' => 5
                 ]
             ])
+            ->add('ville',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            
             ->add('pays',TextType::class,[
                 'data' =>'France' ,
                 'attr' =>[

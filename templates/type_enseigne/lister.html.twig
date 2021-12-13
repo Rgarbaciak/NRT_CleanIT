@@ -18,13 +18,12 @@
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
            
-        <h4>Types d'enseignes : Liste</h4>
+        <h4>Type d'enseigne : Liste</h4>
         </br>
         <table class="table table-bordered table-striped table-condensed">
         <tr>
-                      <th>libelle du type d'enseigne</th>
-                     
-                    </tr>
+          <th>Libelle du type d'enseigne</th>
+        </tr>
         {% for e in pTypeEnseigne %}
         <tr>
             <td><a href="{{ path('typeEnseigneConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a></td>

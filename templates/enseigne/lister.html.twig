@@ -15,26 +15,26 @@
     {% if pEnseigne != null %}
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}        
-        <h4>Enseignes : Liste</h4>
+        <h4>Enseigne : Liste</h4>
         
         <input class='form-control' id='search_group' name="search_group" onkeyup="search_group2()" placeholder="Entrez le nom d'une enseigne">        
                 <table id='table_group' class="table table-bordered table-striped table-condensed">
                 <thead>
                         <tr>
-                      <th>Nom de l'enseigne</th>
+                      <th>Nom</th>
+                      <th >Siret</th>
                       <th>Ville du siège social</th>
-                      <th class="numeric">Pays du siège social</th>
-                      <th >Siret de l'enseigne</th>
-                     
+                      <th class="numeric">Pays du siège social</th>    
                     </tr>
                     </thead>
                     <tbody>
         {% for e in pEnseigne %}
         <tr>
             <td><a href="{{ path('enseigneConsulter', { 'id': e.id }) }}">{{ e.libelle }}</a> </td>
+            <td>{{ e.siret }} </td>
             <td>{{ e.ville }} </td>
             <td>{{ e.pays }} </td>
-            <td>{{ e.siret }} </td>
+            
         </tr>
         {% endfor %}
         </tbody>

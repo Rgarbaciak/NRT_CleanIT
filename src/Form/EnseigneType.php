@@ -23,13 +23,20 @@ class EnseigneType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
+            ->add('siret',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 9
+                ]
+            ]) 
             ->add('logo',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
                 ]
             ])
-            ->add('ville',TextType::class,[
+            ->add('rue',TextType::class,[
+                'label'=>'Adresse',
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
@@ -42,6 +49,13 @@ class EnseigneType extends AbstractType
                     'maxlength' => 5
                 ]
             ])
+            ->add('ville',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ])
+            
             ->add('pays',TextType::class,[
                 'data' =>'France' ,
                 'attr' =>[
@@ -50,18 +64,7 @@ class EnseigneType extends AbstractType
                     
                 ]
             ])
-            ->add('rue',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 50
-                ]
-            ])
-            ->add('siret',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 9
-                ]
-            ]) 
+                        
             ->add('type_enseigne',EntityType::class, array('class' => 'App\Entity\TypeEnseigne','choice_label' => 'libelle' )) 
             ->add('enregistrer', SubmitType::class,[
                 'label'=>'Ajouter l\'enseigne',

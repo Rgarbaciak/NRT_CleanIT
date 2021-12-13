@@ -23,10 +23,30 @@ class EnseigneModifierType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
+            ->add('siret',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 9
+                ]
+            ]) 
             ->add('logo',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
+                ]
+            ])
+            ->add('rue',TextType::class,[
+                'label'=>'Adresse',
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
+            ]) 
+            ->add('copos',TextType::class,[
+                'label'=>'Code Postal',
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 5
                 ]
             ])
             ->add('ville',TextType::class,[
@@ -35,33 +55,15 @@ class EnseigneModifierType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
-            ->add('copos',TextType::class,[
-                'label'=>'Code Postal',
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 5
-                ]
-            ])
-
             ->add('pays',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
                 ]
             ])
-            ->add('rue',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 50
-                ]
-            ])    
+               
 
-            ->add('siret',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 9
-                ]
-            ])        
+           
           
             ->add('type_enseigne',EntityType::class, array('class' => 'App\Entity\TypeEnseigne','choice_label' => 'libelle' )) 
                       

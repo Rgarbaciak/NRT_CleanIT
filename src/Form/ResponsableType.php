@@ -27,8 +27,7 @@ class ResponsableType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
-            ->add('pays',TextType::class,[
-                'data' =>'France' ,
+            ->add('mail',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
@@ -40,12 +39,15 @@ class ResponsableType extends AbstractType
                     'maxlength' => 10
                 ]
             ])
-            ->add('mail',TextType::class,[
+            ->add('pays',TextType::class,[
+                'data' =>'France' ,
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
                 ]
             ])
+            
+            
             ->add('enseigne',EntityType::class, array('class' => 'App\Entity\Enseigne','choice_label' => 'libelle' ))
             ->add('enregistrer', SubmitType::class,[
                 'label'=>'Ajouter le responsable',
