@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Employe;
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -10,7 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class EmployeModifierType extends AbstractType
+class ProfilModifierType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -27,12 +28,7 @@ class EmployeModifierType extends AbstractType
                 'maxlength' => 50
             ]
         ])
-        ->add('mail',TextType::class,[
-            'attr' =>[
-                'class'=> 'form-control',
-                'maxlength' => 50
-            ]
-        ])
+        
         ->add('tel',TextType::class,[
            
             'attr' =>[
@@ -70,7 +66,7 @@ class EmployeModifierType extends AbstractType
         ])
            
         ->add('enregistrer', SubmitType::class,[
-            'label'=>'Ajouter l\'employé',
+            'label'=>'Modifier le profil',
             'attr'=>[
                 'class'=>'btn btn-theme'
                 
@@ -78,9 +74,6 @@ class EmployeModifierType extends AbstractType
         ])        ;
     }
 
-    public function getParent(){
-        return EmployeType::class;
-      }
 
     public function configureOptions(OptionsResolver $resolver): void
     {

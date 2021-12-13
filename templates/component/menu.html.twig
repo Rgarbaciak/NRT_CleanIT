@@ -27,7 +27,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-          <p class="centered"><a href=""><img src="{{ asset('img/ui-sam.jpg') }}" class="img-circle" width="80"></a></p>
+          <p class="centered"><a href="{{ path('profil')}}"><img src="{{ asset('img/ui-sam.jpg') }}" class="img-circle" width="80"></a></p>
           <h5 class="centered">{{app.user.username}}</h5>
 
           {% if is_granted('ROLE_HOTLINER') %}

@@ -30,10 +30,4 @@ class AccueilController extends AbstractController
             }
     }
 
-    public function profil(): Response
-    {
-        return $this->render('personnel/profil.html.twig', [
-            'controller_name' => 'AccueilController',
-        ]);
-    }
 }

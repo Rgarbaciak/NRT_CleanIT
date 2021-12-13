@@ -112,8 +112,6 @@ interlocuteurSupprimer:
   controller: App\Controller\InterlocuteurController::supprimerInterlocuteur
 
 #client
-
-
 clientConsulter:
   path: /client/consulter/{id}
   controller: App\Controller\ClientController::consulterClient
@@ -163,3 +161,12 @@ roleLister:
 register:
   path: /register
   controller: App\Controller\RegistrationController::register
+
+#profil
+profil:
+  path: /personnel/profil
+  controller: App\Controller\ProfilController::index
+
+profilModifier:
+  path: /personnel/modifier/{id}
+  controller: App\Controller\ProfilController::modifierProfil

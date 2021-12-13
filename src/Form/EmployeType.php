@@ -32,8 +32,7 @@ class EmployeType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
-            ->add('pays',TextType::class,[
-                'data' =>'France' ,
+            ->add('mail',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
@@ -46,6 +45,13 @@ class EmployeType extends AbstractType
                     'maxlength' => 10
                     
                 ]
+            ]) 
+            ->add('rue',TextType::class,[
+                'label'=>'Adresse' ,
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50
+                ]
             ])
             ->add('copos',TextType::class,[
                 'label'=>'Code Postal',
@@ -53,25 +59,22 @@ class EmployeType extends AbstractType
                     'class'=> 'form-control',
                     'maxlength' => 5
                 ]
-            ])
+            ])            
             ->add('ville',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
                 ]
-            ])
-            ->add('rue',TextType::class,[
+            ])            
+            ->add('pays',TextType::class,[
+                'data' =>'France' ,
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
                 ]
             ])
-            ->add('mail',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 50
-                ]
-            ])
+                       
+            
             ->add('roles',ChoiceType::class, [
                 'required' => true,
                 'multiple' => false,
