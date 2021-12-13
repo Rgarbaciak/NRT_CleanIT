@@ -18,14 +18,15 @@
            
         <h4>Clients : Liste</h4>
 
-                          <input class='form-control' id='search_group' name="search_group" onkeyup="search_group2()" placeholder="Entrez le nom d'un employé">        
+                          <input class='form-control' id='search_group' name="search_group" onkeyup="search_bar()" placeholder="Entrez une information d'un client ">        
                 <table id='table_group' class="table table-bordered table-striped table-condensed">
-        <tr>        <th>Nom</th>
-                      <th>Prénom</th>
-                      <th>Téléphone</th>
-                      <th>Mail</th>
+            <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Téléphone</th>
+                    <th>Mail</th>
                      
-                    </tr>
+            </tr>
         {% for e in pClient %}
         <tr>
             <td><a href="{{ path('clientConsulter', { 'id': e.id }) }}">{{ e.nom }}</a> </td>
