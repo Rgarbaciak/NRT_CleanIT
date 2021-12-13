@@ -62,6 +62,7 @@ class EmployeType extends AbstractType
                 ]
             ])
             ->add('rue',TextType::class,[
+                'label'=>'Adresse',
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
