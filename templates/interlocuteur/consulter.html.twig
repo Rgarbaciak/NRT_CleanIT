@@ -11,18 +11,17 @@
           <div class="col-lg-5 main-chart">   
                 <div class ="showback">    
 		<h4> <i class="fa fa-angle-right"></i> Interlocuteur : Consultation </h4>  
-    <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.id}}<p>
+    <p><span class="message-p message" style="font-size:15px">Id :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.id}}<p>
     <p><span class="message-p message" style="font-size:15px">Nom :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.nom}}</p>
-    <p><span class="message-p message" style="font-size:15px">Prenom :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.prenom}}</p>
+    <p><span class="message-p message" style="font-size:15px">Prénom :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.prenom}}</p>
     <p><span class="message-p message" style="font-size:15px">Téléphone :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.tel}}</p>
     
-    <p><span class="message-p message" style="font-size:15px">Magasin :</span>&nbsp;&nbsp;&nbsp;<a href="{{ path('magasinConsulter', { 'id': interlocuteur.magasin.id }) }}">{{interlocuteur.magasin.libelle}}<a></p>
         <br>
     <br>
     <br>
    <th><a type="button" class ="btn btn-warning" href="{{ path('interlocuteurModifier', { 'id': interlocuteur.id }) }}">Modifier l'interlocuteur</a> 
     <div class="pull-right">
-    <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer l'enseigne</button> </th> <br>
+    <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer l'interlocuteur</button> </th> <br>
      </div>
     
      </div>
@@ -33,8 +32,8 @@
                    
 	<h4> <i class="fa fa-angle-right"></i> Magasin : consultation </h4>
 
-    <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.id}}</p>
-    <p><span class="message-p message" style="font-size:15px">Nom :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.libelle}}</p>
+    <p><span class="message-p message" style="font-size:15px">Id :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.id}}</p>
+    <p><span class="message-p message" style="font-size:15px">Nom :</span>&nbsp;&nbsp;&nbsp;<a href="{{ path('magasinConsulter', { 'id': interlocuteur.magasin.id }) }}">{{interlocuteur.magasin.libelle}}</a></p>
     <p><span class="message-p message" style="font-size:15px">Adresse :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.rue}}</p>
     <p><span class="message-p message" style="font-size:15px">Code Postal :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.copos}}</p>
     <p><span class="message-p message" style="font-size:15px">Ville :</span>&nbsp;&nbsp;&nbsp;{{interlocuteur.magasin.ville}}</p>
@@ -55,7 +54,7 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûre de vouloir supprimer cet interlocuteur ?</h5>
+        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûr de vouloir supprimer cet interlocuteur ?</h5>
       </div>
       <div class="modal-body">
         <p> Vous allez supprimer l'interlocuteur appelé : {{interlocuteur.nom}} {{interlocuteur.prenom}}</p>

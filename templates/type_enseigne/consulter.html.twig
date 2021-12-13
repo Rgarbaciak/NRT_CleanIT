@@ -13,12 +13,12 @@
                 <div class ="showback">   
 		<h4> <i class="fa fa-angle-right"></i> Type d'Enseigne : Consultation </h4>
 
-    <p><span class="message-p message" style="font-size:15px">Identifiant :</span>&nbsp;&nbsp;&nbsp;{{typeEnseigne.id}}<p>
+    <p><span class="message-p message" style="font-size:15px">Id :</span>&nbsp;&nbsp;&nbsp;{{typeEnseigne.id}}<p>
     <p><span class="message-p message" style="font-size:15px">Libelle :</span>&nbsp;&nbsp;&nbsp;{{typeEnseigne.libelle}}</p>
 
     <th><a type="button" class ="btn btn-warning" href="{{path('typeEnseigneModifier', { 'id': typeEnseigne.id }) }}">Modifier le type d'enseigne</a> </th>
     <div class="pull-right">
-    <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer le client</button> </th><br>
+    <th><button type="button" class ="btn btn-danger" data-toggle="modal" data-target="#validationSuppresion" >Supprimer le type d'enseigne</button> </th><br>
     </div>
     
      </div>
@@ -37,13 +37,13 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûre de vouloir supprimer ce type d'enseigne ?</h5>
+        <h5 class="modal-title" id="validationSuppresionLabel">Êtes-vous sûr de vouloir supprimer ce type d'enseigne ?</h5>
       </div>
       <div class="modal-body">
         <p> Vous allez supprimer le type d'enseigne appelé : {{typeEnseigne.libelle}} </p>
         <div class="alert alert-warning">
         <b> Attention ! <b/> <br>
-        <p> Faire cette suppression engendra la suppression de toutes les enseignes comportant ce type d'enseigne mais aussi la suppression des magasins appartenant à cette enseigne ainsi que la suppression des interlocuteurs en charge des magasins et la suppression des responsables des enseignes ! </p>
+        <p> Faire cette suppression engendrera la suppression de toutes les enseignes comportant ce type d'enseigne, la suppression des magasins appartenant à cette enseigne, la suppression des interlocuteurs en charge des magasins et la suppression des responsables des enseignes ! </p>
         </div>
       </div>
       <div class="modal-footer">

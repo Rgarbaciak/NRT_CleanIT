@@ -42,13 +42,14 @@ class InterlocuteurType extends AbstractType
             ])
             
             ->add('magasin',EntityType::class, array('class' => 'App\Entity\Magasin','choice_label' => 'libelle' )) 
+            
             ->add('enregistrer', SubmitType::class,[
                 'label'=>'Ajouter l\'interlocuteur',
                 'attr'=>[
                     'class'=>'btn btn-theme'
                     
                 ]
-            ])        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

@@ -17,13 +17,13 @@
             
         <h4>Responsables : liste</h4></br>
 
-                    <input class='form-control' id='search_group' name="search_group" onkeyup="search_bar()" placeholder="Entrez une information d'un magasain">        
+                <input class='form-control' id='search_group' name="search_group" onkeyup="search_group2()" placeholder="Entrez une information d'un responsable">        
                 <table id='table_group' class="table table-bordered table-striped table-condensed">
         <tr>
-                      <th>Nom du responsable</th>
-                      <th>Prénom du responsable</th>
-                      <th >Téléphone du responsables</th>
-                      <th >Mail du responsables</th>
+                      <th>Nom</th>
+                      <th>Prénom</th>
+                      <th >Téléphone</th>
+                      <th >Mail</th>
                       <th >Enseigne</th>                       
                     </tr>
         {% for e in pResponsable %}
@@ -31,9 +31,8 @@
             <td><a href="{{ path('responsableConsulter', { 'id': e.id }) }}">{{ e.nom }}</a></td>
             <td>{{ e.prenom }}</td>
             <td>{{ e.tel }}</td>
-            
-            <td>{{ e.enseigne.libelle }}</td>
-    
+            <td>{{ e.mail }}</td>
+            <td>{{ e.enseigne.libelle }}</td>    
         {% endfor %}
         {% else %}
         <tr>
