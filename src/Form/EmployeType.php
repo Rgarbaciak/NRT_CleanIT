@@ -62,15 +62,23 @@ class EmployeType extends AbstractType
             ])            
             ->add('ville',TextType::class,[
                 'attr' =>[
+                    
                     'class'=> 'form-control',
                     'maxlength' => 50
                 ]
-            ])            
-            ->add('pays',TextType::class,[
-                'data' =>'France' ,
+            ])
+            ->add('rue',TextType::class,[
+                'label'=>'Adresse',
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
+                ]
+            ])
+            ->add('mail',TextType::class,[
+                'attr' =>[
+                    'class'=> 'form-control',
+                    'maxlength' => 50,
+                    'pattern'=> '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$'
                 ]
             ])
                        

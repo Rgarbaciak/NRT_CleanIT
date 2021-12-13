@@ -149,6 +149,10 @@ employeSupprimer:
   path: /employe/supprimer/{id}
   controller: App\Controller\EmployeController::supprimerEmploye
 
+employeReinitialiser:
+  path: /employe/reintialiser/{id}
+  controller: App\Controller\EmployeController::reinitialliserEmploye
+
 #role
 roleAjouter:
   path: /role/ajouter

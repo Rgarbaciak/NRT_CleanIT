@@ -100,7 +100,12 @@ class EmployeController extends AbstractController
                 if ($form->isSubmitted() && $form->isValid()) {
      
                      $employe = $form->getData();
+                     $user =$employe ->getUser();
                      $entityManager = $this->getDoctrine()->getManager();
+                     $roles[]= $form ->get('roles')->getData();
+                     $user->setRoles($roles);
+                     $employe->setUser($user);
+
                      $entityManager->persist($employe);
                      $entityManager->flush();
                      return $this->render('employe/consulter.html.twig', ['employe' => $employe,]);
@@ -130,4 +135,35 @@ class EmployeController extends AbstractController
             
         return $this->render('employe/supprimer.html.twig');
      }
-}
+     public function reinitialliserEmploye($id, Request $request,UserPasswordHasherInterface $userPasswordHasher){
+ 
+        //récupération de l'étudiant dont l'id est passé en paramètre
+        $employe = $this->getDoctrine()
+            ->getRepository(Employe::class)
+            ->find($id);
+        $user = $employe->getUser();
+        
+        
+     
+        if (!$employe) {
+            throw $this->createNotFoundException('Aucune employe trouvé avec le numéro '.$id);
+        }
+        else
+        {
+                     $mdp= '123456';
+                     $user->setPassword(
+                        $userPasswordHasher->hashPassword(
+                                $user,
+                                $mdp   
+                            )
+                        );
+                     $entityManager = $this->getDoctrine()->getManager();
+                     $entityManager->persist($user);
+                     $entityManager->flush();
+                     return $this->render('employe/consulter.html.twig', ['employe' => $employe,]);
+               
+               }
+            }
+     }
+
+
