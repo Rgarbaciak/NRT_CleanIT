@@ -65,21 +65,14 @@
             <ul class="sub">
               <li><a href="{{ path('enseigneLister')}}">Liste des enseignes</a></li>
               <li><a href="{{ path('enseigneAjouter')}}">Ajouter une enseigne</a></li>
+              <li><a href="{{ path('responsableLister')}}">Liste des reponsables</a></li>
+              <li><a href="{{ path('responsableAjouter')}}">Ajouter un responsable</a></li>
             </ul>
           </li>
           {% endif %}
 
           {% if is_granted('ROLE_COMMERCIAL') %}
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-university" aria-hidden="true"></i>
-              <span>Type d'enseigne</span>
-              </a>
-            <ul class="sub">
-              <li><a href="{{ path('typeEnseigneLister')}}">Liste des types d'enseignes</a></li>
-              <li><a href="{{ path('typeEnseigneAjouter')}}">Ajouter un type d'enseignes</a></li>
-            </ul>
-          </li>
+          
           <li class="sub-menu">
             <a href="">
               <i class="fa fa-cart-arrow-down"></i>
@@ -88,6 +81,18 @@
             <ul class="sub">
               <li><a href="{{ path('magasinLister')}}">Liste des magasins</a></li>
               <li><a href="{{ path('magasinAjouter')}}">Ajouter un magasin</a></li>
+              <li><a href="{{ path('interlocuteurLister')}}">Liste des interlocuteur</a></li>
+              <li><a href="{{ path('interlocuteurAjouter')}}">Ajouter un interlocuteur</a></li>
+            </ul>
+          </li>
+          <li class="sub-menu">
+            <a href="javascript:;">
+              <i class="fa fa-university" aria-hidden="true"></i>
+              <span>Type d'enseigne</span>
+              </a>
+            <ul class="sub">
+              <li><a href="{{ path('typeEnseigneLister')}}">Liste des types d'enseignes</a></li>
+              <li><a href="{{ path('typeEnseigneAjouter')}}">Ajouter un type d'enseignes</a></li>
             </ul>
           </li>
           {% endif %}
@@ -99,36 +104,13 @@
               <span>Personnel</span>
               </a>
             <ul class="sub">
+          {% if is_granted('ROLE_HOTLINER') %} 
               <li><a href="{{ path('clientLister')}}">Liste des clients</a></li>
+          {% endif %}
               <li><a href="{{ path('employeLister')}}">Liste des employe</a></li>
               <li><a href="{{ path('employeAjouter')}}">Ajouter un employe</a></li>
             </ul>                      
           </li>
           {% endif %}
           
-          {% if is_granted('ROLE_COMMERCIAL') %}
-
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-commenting-o" aria-hidden="true"></i>
-              <span>Interlocuteur</span>
-              </a>
-            <ul class="sub">
-              <li><a href="{{ path('interlocuteurLister')}}">Liste des interlocuteur</a></li>
-              <li><a href="{{ path('interlocuteurAjouter')}}">Ajouter un interlocuteur</a></li>
-            </ul>
-          </li>
-
-          <li class="sub-menu">
-            <a href="javascript:;">
-              <i class="fa fa-address-book" aria-hidden="true"></i>
-              <span>Responsable</span>
-              </a>
-            <ul class="sub">
-              <li><a href="{{ path('responsableLister')}}">Liste des reponsables</a></li>
-              <li><a href="{{ path('responsableAjouter')}}">Ajouter un responsable</a></li>
-            </ul>
-          </li>
-
-          {% endif %}
 </aside>
