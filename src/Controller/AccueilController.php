@@ -16,7 +16,6 @@ class AccueilController extends AbstractController
     public function home(): Response
     {
         $role = $this -> getUser() -> getRoles()[0];
-        print_r($role);
         if($role == NULL ){
             return $this->redirecttoRoute('app_login');
         }
