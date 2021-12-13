@@ -15,44 +15,6 @@ class ClientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 50
-                ]
-            ])
-            ->add('prenom',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 50
-                ]
-            ])
-            ->add('adresse',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 50
-                ]
-            ])
-            ->add('copos',TextType::class,[
-                'label'=>'Code Postal',
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 5
-                ]
-            ])
-            ->add('ville',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 50
-                ]
-            ])
-            ->add('pays',TextType::class,[
-                'data' =>'France' ,
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 50
-                ]
-            ])
             ->add('mail',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
