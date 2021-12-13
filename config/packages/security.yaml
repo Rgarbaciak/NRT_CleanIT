@@ -49,10 +49,10 @@ security:
     - { path: ^/interlocuteur, roles: ROLE_COMMERCIAL }
     - { path: ^/responsable, roles: ROLE_COMMERCIAL }
 
-    - { path: ˆ/*, roles: ROLE_ADMIN }
+    - { path: ˆ/employe, roles: ROLE_ADMIN }
     
-  role_hierarchy:
-    ROLE_USER:
-    ROLE_HOTLINER:    [ ROLE_USER ]
-    ROLE_COMMERCIAL:  [ ROLE_USER ]
-    ROLE_ADMIN:       [ ROLE_HOTLINER, ROLE_COMMERCIAL]
+  #role_hierarchy:
+  #  ROLE_USER:
+  #  ROLE_HOTLINER:    [ ROLE_USER ]
+  #  ROLE_COMMERCIAL:  [ ROLE_USER ]
+  #  ROLE_ADMIN:       [ ROLE_HOTLINER, ROLE_COMMERCIAL]
