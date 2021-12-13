@@ -27,9 +27,7 @@ class ClientModifierType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
-            ->add('pays',TextType::class,[
-                
-                
+            ->add('adresse',TextType::class,[
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
@@ -48,7 +46,9 @@ class ClientModifierType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
-            ->add('rue',TextType::class,[
+            ->add('pays',TextType::class,[
+                
+                
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
