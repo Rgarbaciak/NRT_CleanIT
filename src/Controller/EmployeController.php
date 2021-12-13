@@ -6,9 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Employe;
+use App\Entity\User;
 use App\Form\EmployeType;
 use App\Form\EmployeModifierType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class EmployeController extends AbstractController
 {
@@ -20,14 +22,32 @@ class EmployeController extends AbstractController
         ]);
     }
 
-    public function ajouterEmploye(Request $request){
+    public function ajouterEmploye(Request $request,UserPasswordHasherInterface $userPasswordHasher){
         $employe = new Employe();
+        $user = new User();
         $form = $this->createForm(EmployeType::class, $employe);
         $form->handleRequest($request);{}
+        
     
         if ($form->isSubmitted() && $form->isValid()) {
-    
+
+                $mdp= "123456";
                 $employe = $form->getData();
+
+                $mailForm = $form->get('mail')->getData();
+                $user->setEmail($mailForm);
+
+                $roles[]= $form ->get('roles')->getData();
+                $user->setRoles($roles);
+
+                $user->setPassword(
+                    $userPasswordHasher->hashPassword(
+                            $user,
+                            $mdp
+                            
+                        )
+                    );
+                $employe->setUser($user);
     
                 $entityManager = $this->getDoctrine()->getManager();
                 $entityManager->persist($employe);

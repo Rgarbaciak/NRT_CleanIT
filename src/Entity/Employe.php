@@ -57,6 +57,11 @@ class Employe
      */
     private $pays;
 
+    /**
+     * @ORM\OneToOne(targetEntity=User::class, inversedBy="employe", cascade={"persist", "remove"})
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -154,6 +159,18 @@ class Employe
     public function setPays(?string $pays): self
     {
         $this->pays = $pays;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }
