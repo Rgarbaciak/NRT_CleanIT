@@ -68,7 +68,8 @@
 
 {% for i in magasin.interlocuteurs %}
 <tr>
-<td> {{i.Nom}} </td>
+
+<td><a href="{{ path('interlocuteurConsulter', { 'id': i.id }) }}">{{i.Nom}}</a> </td>
 <td> {{i.Prenom}} </td>
 <td> {{i.tel}} </td>
 <td> {{i.mail}} </td>
