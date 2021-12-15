@@ -67,22 +67,14 @@ class EmployeType extends AbstractType
                     'maxlength' => 50
                 ]
             ])
-            ->add('rue',TextType::class,[
-                'label'=>'Adresse',
+            ->add('pays',TextType::class,[
+                'data' =>'France' ,
                 'attr' =>[
                     'class'=> 'form-control',
                     'maxlength' => 50
                 ]
             ])
-            ->add('mail',TextType::class,[
-                'attr' =>[
-                    'class'=> 'form-control',
-                    'maxlength' => 50,
-                    'pattern'=> '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$'
-                ]
-            ])
-                       
-            
+                
             ->add('roles',ChoiceType::class, [
                 'required' => true,
                 'multiple' => false,

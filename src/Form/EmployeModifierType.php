@@ -70,7 +70,7 @@ class EmployeModifierType extends AbstractType
         ])
            
         ->add('enregistrer', SubmitType::class,[
-            'label'=>'Ajouter l\'employé',
+            'label'=>'Modifier l\'employé',
             'attr'=>[
                 'class'=>'btn btn-theme'
                 
