@@ -2,6 +2,7 @@
 <html>
     <head>
         {% include('./component/css.html.twig') %}
+        <title>CleanIT | Consultation d'un client</title>
     </head>
     <body>
      {% include('./component/menu.html.twig') %}  
@@ -18,13 +19,8 @@
     <p><span class="message-p message" style="font-size:15px">Téléphone :</span>&nbsp;&nbsp;&nbsp; {{client.tel}}</p>
     <p><span class="message-p message" style="font-size:15px">Adresse Mail :</span>&nbsp;&nbsp;&nbsp;{{client.mail}}</p>
 
-    {% for m in client.cartes  %}
-    <p><span class="message-p message" style="font-size:15px">Numéro carte :</span>&nbsp;&nbsp;&nbsp;{{m.numero}}</p>
-    {% endfor %}
-
     
-   
-    <p><span class="message-p message" style="font-size:15px">Adresse : </span>&nbsp;&nbsp;&nbsp;  {{client.rue}}</p>
+                <p><span class="message-p message" style="font-size:15px">Adresse : </span>&nbsp;&nbsp;&nbsp;  {{client.rue}}</p>
                 <p><span class="message-p message" style="font-size:15px">Code postal : </span>&nbsp;&nbsp;&nbsp; {{client.copos}}</p>
                 <p><span class="message-p message" style="font-size:15px">Ville : </span>&nbsp;&nbsp;&nbsp;  {{client.ville}}</p>
                 <p><span class="message-p message" style="font-size:15px">Pays : </span>&nbsp;&nbsp;&nbsp; {{client.pays}}</p>
@@ -40,6 +36,42 @@
 
 </div>
 </div>
+
+<div class="row">
+          <div class="col-lg-6 main-chart">   
+                <div class ="showback">
+                   
+	<h4> <i class="fa fa-angle-right"></i> Fidelité : consultation </h4>
+
+
+
+<table id='table_group' class="table table-bordered table-striped table-condensed">
+                <thead>
+                        <tr>
+                      <th>N° de carte</th>
+                      <th >Nom de l'enseigne </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+    {% for m in client.cartes  %}
+    
+        <tr>
+            <td>{{m.numero}}</td>
+            <td>{{m.enseigne.libelle}}</td>
+            
+        </tr>
+        {% endfor %}
+        </tbody>
+         <tr>
+        </tr>
+    
+</table>
+
+    
+
+    </div>
+          </div>
+                </div>
 </section>
 </section>
     {% include('./component/script.html.twig') %}
