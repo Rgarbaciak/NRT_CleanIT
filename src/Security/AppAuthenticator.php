@@ -34,7 +34,7 @@ class AppAuthenticator extends AbstractAuthenticator
 
     public function supports(Request $request): ?bool
     {
-        return ($request->getPathInfo() === '/login' && $request->isMethod('POST'));
+        return ($request->getPathInfo() === '/'  && $request->isMethod('POST'));
     }
 
 
@@ -65,7 +65,7 @@ class AppAuthenticator extends AbstractAuthenticator
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
         return new RedirectResponse(
-            $this->router->generate('index')
+            $this->router->generate('home')
         );
     }
 
