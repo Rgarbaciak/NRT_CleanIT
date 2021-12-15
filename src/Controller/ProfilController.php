@@ -10,7 +10,10 @@ use App\Entity\Employe;
 use App\Form\UserType;
 use App\Form\UserModifierType;
 use App\Form\ProfilModifierType;
+use App\Form\MdpModifierType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+
 
 
 class ProfilController extends AbstractController
@@ -54,5 +57,70 @@ class ProfilController extends AbstractController
      }
 
 
+     public function mdpModifier($id, Request $request,UserPasswordHasherInterface $userPasswordHasher){
+ 
+        //récupération de l'étudiant dont l'id est passé en paramètre
+        $user = $this->getDoctrine()
+            ->getRepository(User::class)
+            ->find($id);
+            $employe = $user->getEmploye();
 
-}
+          
+        
+     
+        if (!$employe) {
+            throw $this->createNotFoundException('Aucune employe trouvé avec le numéro '.$id);
+        }
+        else
+        {
+                     $form = $this->createForm(MdpModifierType::class, $employe);
+                     $form->handleRequest($request);
+
+                     if ($form->isSubmitted() && $form->isValid()) {
+
+                     $mdpVerif=$user->getPassword();
+                     
+                     $mdpBefore=$form->get('mdpBefore')->getdata();
+                     $mdpNext= $form ->get('mdpNext')->getData();
+                     $hashedPassword = $userPasswordHasher->isPasswordValid(
+                        $user,
+                        $mdpBefore
+                    );
+                    
+          
+
+                     if( $hashedPassword == 1){
+                        $user->setPassword(
+                            $userPasswordHasher->hashPassword(
+                                    $user,
+                                    $mdpNext   
+                                )
+                            );
+                         $entityManager = $this->getDoctrine()->getManager();
+                         $entityManager->persist($user);
+                         $entityManager->flush();
+                         return $this->render('personnel/profil.html.twig', ['profil' => $employe,]);
+
+                     }
+                     else{
+                         $erreur = 'Mot de passe incorrect' ;
+                         return $this->render('personnel/mdpModifier.html.twig',['form' => $form->createView(),'erreur'=>$erreur]);
+                     }
+                     
+                    }
+                    else{
+                        $erreur='bvn';
+                        return $this->render('personnel/mdpModifier.html.twig'
+                        , ['form' => $form->createView(),'erreur'=>$erreur]
+                    
+                );
+                    }
+               
+               }
+            }
+     }
+
+
+
+
+

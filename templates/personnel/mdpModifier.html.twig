@@ -1,0 +1,19 @@
+{% include('./component/css.html.twig') %}
+{% include('./component/menu.html.twig') %}
+   <section id="main-content">
+      <section class="wrapper">
+        <div class="form-group">
+          <div class="form-panel">
+              <h4 class="mb"><i class="fa fa-angle-right"></i> Profil : Changement de mot de passe</h4>
+{{ form_start(form) }}
+{{ form_widget(form) }}
+                {% if erreur == 'Mot de passe incorrect' %}
+                    <div class="alert alert-danger">Mot de passe incorrect</div>
+                {% endif %}
+{{ form_end(form) }}
+
+</div>
+</div>
+</section>
+</section>
+{% include('./component/script.html.twig') %}
