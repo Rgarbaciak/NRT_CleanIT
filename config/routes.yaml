@@ -1,6 +1,6 @@
-index:
+app_login:
   path: /
-  controller: App\Controller\AccueilController::index
+  controller: App\Controller\SecurityController::login
 
 home:
   path: /home
@@ -174,3 +174,9 @@ profil:
 profilModifier:
   path: /personnel/modifier/{id}
   controller: App\Controller\ProfilController::modifierProfil
+
+mdpModifier:
+  path: /personnel/mdpModifier/{id}
+  controller: App\Controller\ProfilController::mdpModifier
+
+   
