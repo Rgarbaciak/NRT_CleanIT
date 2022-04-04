@@ -36,7 +36,7 @@ class MdpModifierType extends AbstractType
         
            
         ->add('enregistrer', SubmitType::class,[
-            'label'=>'Modifier le profil',
+            'label'=>'Modifier le Mot de passe',
             'attr'=>[
                 'class'=>'btn btn-theme'
                 

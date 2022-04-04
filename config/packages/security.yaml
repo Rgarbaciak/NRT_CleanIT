@@ -48,8 +48,8 @@ security:
     - { path: ^/magasin, roles: ROLE_COMMERCIAL }
     - { path: ^/interlocuteur, roles: ROLE_COMMERCIAL }
     - { path: ^/responsable, roles: ROLE_COMMERCIAL }
+    - { path: ^/employe, roles: ROLE_ADMIN }
 
-    - { path: ˆ/employe, roles: ROLE_ADMIN }
     
   #role_hierarchy:
   #  ROLE_USER:
