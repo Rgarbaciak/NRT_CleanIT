@@ -37,12 +37,13 @@
                   <p>Rôle : Hotliner</p>
                 {% endif %}
                 {% endfor %}
-                <p>Email : {{app.user.employe.mail}}</p>
-                <p>Téléphone : {{app.user.employe.tel}}</p>
-                <p>Adresse : {{app.user.employe.rue}} {{app.user.employe.copos}} {{app.user.employe.ville}} {{app.user.employe.pays}}</p>
-
+                <p><span class="message-p message" style="font-size:15px">Email : </span>&nbsp;&nbsp;&nbsp;{{app.user.employe.mail}} </p>
+                <p><span class="message-p message" style="font-size:15px">Téléphone : </span>&nbsp;&nbsp;&nbsp;{{app.user.employe.tel}}</p>
+                <p><span class="message-p message" style="font-size:15px">Adresse : </span>&nbsp;&nbsp;&nbsp;{{app.user.employe.rue}}   </p>
+                <p><span class="message-p message" style="font-size:15px">Code postal :</span>&nbsp;&nbsp;&nbsp;{{app.user.employe.copos}}</p>
+                <p><span class="message-p message" style="font-size:15px">Ville :</span>&nbsp;&nbsp;&nbsp;{{app.user.employe.ville}}</p>
+                <p><span class="message-p message" style="font-size:15px">Pays :</span>&nbsp;&nbsp;&nbsp;{{app.user.employe.pays}}</p>
                 <th><a type="button" class ="btn btn-warning" href="{{ path('profilModifier', { 'id': app.user.id }) }}">Modifier le Profil</a> </th>
-
                 <th><a type="button" class ="btn btn-warning" href="{{ path('mdpModifier', { 'id': app.user.id }) }}">Modifier mon mot de passe</a> </th>
 
                 <br>
